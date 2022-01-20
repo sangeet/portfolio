@@ -16,9 +16,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       </Head>
       <div id="body-root" className="h-full min-h-screen flex flex-col">
         <Header />
-        <main className="flex flex-col h-full flex-grow">
-          {children}
-        </main>
+        <main className="flex flex-col h-full flex-grow">{children}</main>
         <Footer />
       </div>
     </div>

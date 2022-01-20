@@ -16,7 +16,6 @@ const Nav = () => {
     { title: "Home", href: "/" },
     { title: "Profile", href: "/profile" },
     { title: "Projects", href: "/projects" },
-    { title: "Testimonials", href: "/testimonials" },
   ];
   return (
     <nav>
@@ -38,7 +37,7 @@ const Logo = () => {
     <svg
       // width={146}
       // height={60}
-      viewBox="0 0 146 60"
+      viewBox="0 0 146 74"
       fill="none"
       className="h-12"
       xmlns="http://www.w3.org/2000/svg"

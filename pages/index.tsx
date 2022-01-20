@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { FunctionComponent } from "react";
 import type { NextPage } from "next";
-import { Layout } from "../components/layout/layout";
 import Link from "next/link";
+import Image from "next/image";
+
+import { Layout } from "../components/layout/layout";
 import { ChevronRight } from "../components/icons/chevron-right";
+import { projects } from "../data/projects";
 
 const Index: NextPage = () => {
   return (
@@ -14,11 +17,11 @@ const Index: NextPage = () => {
   );
 };
 
-const Intro = () => {
+const Intro: FunctionComponent = () => {
   return (
     <section
       id="intro"
-      className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-24 container"
+      className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-12 lg:py-24 container"
     >
       <div className="flex items-center justify-center col-span-4">
         <img
@@ -53,27 +56,9 @@ const Intro = () => {
   );
 };
 
-const Projects = () => {
-  const sampleItem = {
-    title: "Website Name",
-    image: "https://via.placeholder.com/1920x1080/334155",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, sint.",
-  };
-  const projectItems = [
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-    sampleItem,
-  ];
+const Projects: FunctionComponent = () => {
   return (
-    <section className="flex flex-col container py-24">
+    <section className="flex flex-col container py-12 lg:py-24">
       <div className="flex items-end justify-between">
         <div className="flex items-stretch">
           <h2 className="section-heading">Projects</h2>
@@ -91,13 +76,22 @@ const Projects = () => {
         </Link>
       </div>
       <div className="flex w-full overflow-scroll my-5">
-        {projectItems.map((item, index) => (
+        {projects.map((item, index) => (
           <Link href="/" key={index}>
             <a className={`card w-96 my-5 ${index > 0 && "ml-6"}`}>
-              <img src={item.image} alt={item.title} />
-              <div className="flex flex-col p-5">
-                <h3 className="text-2xl font-medium mb-5">{item.title}</h3>
-                <p>{item.text}</p>
+              <Image src={item.image} alt={item.title} />
+              <div className="flex flex-col p-5 flex-grow">
+                <h3 className="text-2xl font-medium">{item.title}</h3>
+                <p className="my-5">{item.description}</p>
+                {item.tags && (
+                  <div className="flex mr-2 mt-auto">
+                    {item.tags.map((tag, i) => (
+                      <span key={i} className="mr-3 bg-slate-600 px-2 py-1 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </a>
           </Link>
