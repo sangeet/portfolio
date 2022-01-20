@@ -3,6 +3,7 @@ import { FunctionComponent } from "react";
 import type { NextPage } from "next";
 import { Layout } from "../components/layout/layout";
 import Link from "next/link";
+import { ChevronRight } from "../components/icons/chevron-right";
 
 const Index: NextPage = () => {
   return (
@@ -42,9 +43,9 @@ const Intro = () => {
             businesses.
           </p>
           <p>
-            I&apos;m interested in learning things related to technology and expand
-            my skills to contribute higher quality code which helps solve new
-            problems.
+            I&apos;m interested in learning things related to technology and
+            expand my skills to contribute higher quality code which helps solve
+            new problems.
           </p>
         </div>
       </div>
@@ -74,27 +75,32 @@ const Projects = () => {
   return (
     <section className="flex flex-col container py-24">
       <div className="flex items-end justify-between">
-        <h2 className="section-heading">Projects</h2>
+        <div className="flex items-stretch">
+          <h2 className="section-heading">Projects</h2>
+          <div className="flex ml-5">
+            <button className="bg-slate-700 px-2 mr-2">
+              <ChevronRight className="h-6 w-6 transform rotate-180" />
+            </button>
+            <button className="bg-slate-700 px-2">
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
         <Link href="/projects">
-          <a className="text-lg border-b-2">
-            View all
-          </a>
+          <a className="text-lg border-b-2">View all</a>
         </Link>
       </div>
       <div className="flex w-full overflow-scroll my-5">
         {projectItems.map((item, index) => (
-          <div
-            className={`bg-slate-900 flex flex-col w-96 flex-shrink-0 my-5 rounded shadow ${
-              index > 0 && "ml-6"
-            }`}
-            key={index}
-          >
-            <img src={item.image} alt={item.title} />
-            <div className="flex flex-col p-5">
-              <h3 className="text-2xl font-medium mb-5">{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
-          </div>
+          <Link href="/" key={index}>
+            <a className={`card w-96 my-5 ${index > 0 && "ml-6"}`}>
+              <img src={item.image} alt={item.title} />
+              <div className="flex flex-col p-5">
+                <h3 className="text-2xl font-medium mb-5">{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </a>
+          </Link>
         ))}
       </div>
     </section>
