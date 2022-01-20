@@ -1,23 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
-import Link from "next/link";
-import { LinkedinIcon } from "../icons/linkedin";
-import { UpworkIcon } from "../icons/upwork";
+import { SocialIcons } from "../social-icons";
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      title: "LinkedIn",
-      icon: LinkedinIcon,
-      href: "https://www.linkedin.com/in/sangeet-khatri-16283027/",
-    },
-    {
-      title: "Upwork",
-      icon: UpworkIcon,
-      href: "https://www.upwork.com/freelancers/~015f4ecffa7bc1b54",
-    },
-  ];
   return (
     <footer className="py-10">
       <div className="container flex justify-between">
@@ -32,11 +18,7 @@ const Footer = () => {
           </address>
         </div>
         <div className="flex items-center">
-          {socialLinks.map((link, index) => (
-            <Link href={link.href} key={index}>
-              <a className="h-10 w-10 ml-2">{React.createElement(link.icon)}</a>
-            </Link>
-          ))}
+          <SocialIcons />
         </div>
       </div>
     </footer>

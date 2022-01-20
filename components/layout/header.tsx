@@ -2,9 +2,13 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header id="header" className="py-5">
+    <header id="header" className="py-5 text-slate-100">
       <div className="container flex justify-between items-center">
-        <Logo />
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
         <Nav />
       </div>
     </header>
@@ -21,7 +25,7 @@ const Nav = () => {
     <nav>
       <ul className="flex text-lg">
         {links.map((link, index) => (
-          <li key={index} className="ml-5">
+          <li key={index} className="ml-5 font-medium">
             <Link href={link.href}>
               <a>{link.title}</a>
             </Link>
