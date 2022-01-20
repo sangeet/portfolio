@@ -21,9 +21,9 @@ const Intro = () => {
     >
       <div className="flex items-center justify-center col-span-4">
         <img
-          src="https://via.placeholder.com/500"
+          src="https://via.placeholder.com/500/334155"
           alt=""
-          className="rounded-full border-4 border-white shadow-lg"
+          className="rounded-full shadow-lg border-4 border-slate-400"
         />
       </div>
       <div className="flex flex-col justify-center col-span-4 lg:col-span-8">
@@ -55,7 +55,7 @@ const Intro = () => {
 const Projects = () => {
   const sampleItem = {
     title: "Website Name",
-    image: "https://via.placeholder.com/1920x1080",
+    image: "https://via.placeholder.com/1920x1080/334155",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, sint.",
   };
   const projectItems = [
@@ -76,7 +76,7 @@ const Projects = () => {
       <div className="flex items-end justify-between">
         <h2 className="section-heading">Projects</h2>
         <Link href="/projects">
-          <a className="text-gray-400 text-lg border-b-2 border-gray-400">
+          <a className="text-lg border-b-2">
             View all
           </a>
         </Link>
@@ -84,7 +84,7 @@ const Projects = () => {
       <div className="flex w-full overflow-scroll my-5">
         {projectItems.map((item, index) => (
           <div
-            className={`flex flex-col w-96 flex-shrink-0 my-5 bg-white rounded shadow ${
+            className={`bg-slate-900 flex flex-col w-96 flex-shrink-0 my-5 rounded shadow ${
               index > 0 && "ml-6"
             }`}
             key={index}

@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply bg-slate-900;
+}
+
+body {
+  @apply text-slate-300 bg-gradient-to-b from-slate-900 to-slate-800;
+}
+
+header {
+  @apply bg-slate-900 sticky top-0;
+}
+
+footer{
+  @apply bg-slate-900;
+}
+
 .container {
   @apply px-5;
 }

@@ -19,7 +19,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="bg-blue-50 py-5">
+    <footer className="py-5">
       <div className="container flex justify-between">
         <div className="flex flex-col">
           <h4 className="font-medium text-lg">Sangeet Khatri</h4>
