@@ -36,15 +36,15 @@ type ProjectPropsType = {
 const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
   return (
     <Layout>
-      <section className="container py-12 lg:py-24 grid grid-cols-12 gap-12 lg:gap-24">
-        <div className="col-span-12 lg:col-span-6">
+      <section className="container py-12 lg:py-24 grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="col-span-4 lg:col-span-6">
           <Image
             src={data.image}
             alt={data.title}
             className="rounded-lg shadow-lg"
           />
         </div>
-        <div className="col-span-12 lg:col-span-6 flex flex-col">
+        <div className="col-span-4 lg:col-span-6 flex flex-col">
           <span className="mb-5 text-orange-400">{data.type}</span>
           <h1 className="text-4xl font-bold">{data.title}</h1>
           <p className="my-5">{data.description}</p>
