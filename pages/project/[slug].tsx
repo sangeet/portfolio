@@ -42,6 +42,8 @@ const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
             src={data.image}
             alt={data.title}
             className="rounded-lg shadow-lg"
+            placeholder="blur"
+            layout="responsive"
           />
         </div>
         <div className="col-span-4 lg:col-span-6 flex flex-col">

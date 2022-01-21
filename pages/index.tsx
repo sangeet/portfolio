@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { FunctionComponent } from "react";
+import { FunctionComponent, useRef, useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -67,16 +67,45 @@ const Intro: FunctionComponent = () => {
 };
 
 const Projects: FunctionComponent = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(100);
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((event) => {
+      // Depending on the layout, you may need to swap inlineSize with blockSize
+      // https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry/contentBoxSize
+      setWidth(event[0].contentBoxSize[0].inlineSize);
+    });
+
+    //@ts-ignore
+    resizeObserver.observe(document.getElementById("project-carousel"));
+  });
+
+  const handleLeftClick = () => {
+    carouselRef.current?.scroll({
+      left: carouselRef.current.scrollLeft - width,
+    });
+  };
+  const handleRightClick = () => {
+    carouselRef.current?.scroll({
+      left: carouselRef.current.scrollLeft + width,
+    });
+  };
   return (
     <section className="flex flex-col container py-12 lg:py-24">
       <div className="flex items-end justify-between">
         <div className="flex items-stretch">
           <h2 className="section-heading">Projects</h2>
           <div className="flex ml-5">
-            <button className="bg-slate-700 px-2 mr-2">
+            <button
+              className="bg-slate-700 px-2 mr-2"
+              onClick={() => handleLeftClick()}
+            >
               <ChevronRight className="h-6 w-6 transform rotate-180" />
             </button>
-            <button className="bg-slate-700 px-2">
+            <button
+              className="bg-slate-700 px-2"
+              onClick={() => handleRightClick()}
+            >
               <ChevronRight className="h-6 w-6" />
             </button>
           </div>
@@ -85,15 +114,27 @@ const Projects: FunctionComponent = () => {
           <a className="text-lg border-b-2">View all</a>
         </Link>
       </div>
-      <div className="flex w-full overflow-scroll my-5 -mx-3">
+      <div
+        className="flex w-full overflow-scroll scroll-smooth my-5 -mx-3 snap-x"
+        id="project-carousel"
+        ref={carouselRef}
+      >
         {projects.map((item, index) => (
           <div
-            className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 my-5 flex-shrink-0 px-3"
+            className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 my-5 flex-shrink-0 px-3 snap-start"
             key={index}
           >
             <Link href={`/project/${item.slug}`}>
               <a className="card h-full">
-                <Image src={item.image} alt={item.title} />
+                <div className="block w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    placeholder="blur"
+                    layout="responsive"
+                  />
+                </div>
+
                 <div className="flex flex-col p-5 flex-grow">
                   <h3 className="text-2xl font-medium">{item.title}</h3>
                   <p className="my-5">{item.description}</p>
