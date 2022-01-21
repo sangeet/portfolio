@@ -24,7 +24,7 @@ const Intro: FunctionComponent = () => {
       id="intro"
       className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-12 lg:py-24 container"
     >
-      <div className="flex items-center justify-center col-span-4">
+      <div className="flex items-center justify-center col-span-4 p-10 lg:p-0">
         <img
           src="https://via.placeholder.com/500/334155"
           alt=""
