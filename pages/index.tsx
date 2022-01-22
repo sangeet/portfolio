@@ -28,16 +28,17 @@ const Intro: FunctionComponent = () => {
       id="intro"
       className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-12 lg:py-24 container"
     >
-      <div className="flex items-center justify-center col-span-4 p-10 lg:p-0">
-        <div className="h-72 w-72 rounded-full nm-flat-slate-800 overflow-hidden relative">
+      <div className="flex items-center justify-center col-span-4 p-10 lg:p-0 nm-flat-slate-800-lg rounded bg-pattern">
+        <div className="h-72 w-72 p-5 rounded-full nm-inset-slate-800-lg overflow-hidden relative">
           <Image
             src={myPhoto}
             alt="Sangeet Profile Photo"
             layout="responsive"
+            className="rounded-full"
           />
         </div>
       </div>
-      <div className="flex flex-col justify-center col-span-4 lg:col-span-8 nm-flat-slate-800-lg p-10 rounded">
+      <div className="flex flex-col justify-center col-span-4 lg:col-span-8 nm-flat-slate-800-lg p-10 md:px-16 md:py-12 rounded bg-pattern">
         <div className="flex flex-col">
           <span className="text-5xl font-medium text-orange-400 mb-5">Hi,</span>
           <span className="font-medium text-slate-300 text-xl">
@@ -112,19 +113,20 @@ const Projects: FunctionComponent = () => {
 const Testimonials: FunctionComponent = () => {
   const slides = testimonials.map((testimonial, index) => (
     <div key={index} className="w-full my-5 flex-shrink-0 px-3 snap-start">
-      <div className="max-w-5xl mx-auto px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full md:nm-flat-slate-800-lg rounded-xl">
-        <p className="text-center text-lg">{testimonial.text}</p>
-        <div className="flex items-center mt-10 px-5 py-3 nm-flat-slate-800 rounded-xl">
-          <div className="rounded-full shadow overflow-hidden h-24 w-24">
+      <div className="max-w-5xl mx-auto px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full nm-flat-slate-800-lg bg-pattern rounded-xl testimonial-card">
+        <p className="text-center md:text-lg">{testimonial.text}</p>
+        <div className="flex items-center mt-10 px-6 py-4 nm-inset-slate-800 rounded-full">
+          <div className="rounded-full shadow overflow-hidden h-24 w-24 flex-shrink-0">
             <Image
               src={testimonial.profile.image}
               alt={testimonial.profile.name}
               objectFit="cover"
+              className="rounded-full"
             />
           </div>
           <div className="flex flex-col ml-5" style={{ maxWidth: "250px" }}>
-            <span className="font-bold">{testimonial.profile.name}</span>
-            <span className="text-sm my-1">{testimonial.profile.title}</span>
+            <span className="text-sm sm:text-base font-bold">{testimonial.profile.name}</span>
+            <span className="text-xs sm:text-sm my-1">{testimonial.profile.title}</span>
             <span className="text-xs">{testimonial.profile.location}</span>
           </div>
         </div>

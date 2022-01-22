@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 html {
-  @apply nm-flat-slate-800;
+  @apply bg-slate-800;
 }
 
 body {
-  @apply text-slate-400 nm-flat-slate-800;
+  @apply text-slate-400 bg-slate-800;
 }
 
 header {
-  @apply bg-slate-800 sticky top-0 shadow-lg;
+  @apply nm-flat-slate-800-lg sticky top-0 shadow-lg bg-pattern;
 }
 
 footer {
-  @apply nm-flat-slate-800-lg;
+  @apply nm-flat-slate-800-lg bg-pattern;
 }
 
 .container {
@@ -27,7 +27,7 @@ footer {
 }
 
 .card {
-  @apply nm-flat-slate-800-lg flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow;
+  @apply nm-flat-slate-800-lg flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow bg-pattern;
 }
 
 .interactive {
@@ -68,4 +68,9 @@ button {
 
 .dot {
   @apply h-5 w-5 rounded-full nm-concave-slate-800-lg mx-2 interactive cursor-pointer;
+}
+
+.bg-pattern {
+background-color: #1e293b;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23475569' fill-opacity='0.3'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
