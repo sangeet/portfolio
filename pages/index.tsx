@@ -29,7 +29,7 @@ const Intro: FunctionComponent = () => {
       className="grid grid-cols-4 lg:grid-cols-12 gap-12 xl:gap-24 py-12 lg:py-24 container"
     >
       <div className="flex items-center justify-center col-span-4 p-10 lg:p-0 nm-flat-slate-800-lg rounded bg-pattern">
-        <div className="h-72 w-72 p-5 rounded-full nm-inset-slate-800-lg overflow-hidden relative">
+        <div className="w-64 h-64 sm:h-72 sm:w-72 p-5 rounded-full nm-inset-slate-800-lg overflow-hidden relative">
           <Image
             src={myPhoto}
             alt="Sangeet Profile Photo"
@@ -118,10 +118,10 @@ const Projects: FunctionComponent = () => {
 const Testimonials: FunctionComponent = () => {
   const slides = testimonials.map((testimonial, index) => (
     <div key={index} className="w-full my-5 flex-shrink-0 px-3 snap-start">
-      <div className="max-w-5xl mx-auto px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full nm-flat-slate-800-lg bg-pattern rounded-xl testimonial-card">
-        <p className="text-center md:text-lg">{testimonial.text}</p>
-        <div className="flex items-center mt-10 px-6 py-4 nm-inset-slate-800 rounded-full">
-          <div className="rounded-full shadow overflow-hidden h-24 w-24 flex-shrink-0">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full nm-flat-slate-800-lg bg-pattern rounded-xl testimonial-card">
+        <p className="text-center text-sm sm:text-base md:text-lg">{testimonial.text}</p>
+        <div className="flex flex-col sm:flex-row items-center mt-10 p-6 sm:py-4 sm:nm-inset-slate-800 rounded-xl sm:rounded-full">
+          <div className="rounded-full shadow overflow-hidden w-20 h-20 sm:h-24 sm:w-24 flex-shrink-0">
             <Image
               src={testimonial.profile.image}
               alt={testimonial.profile.name}
@@ -129,7 +129,7 @@ const Testimonials: FunctionComponent = () => {
               className="rounded-full"
             />
           </div>
-          <div className="flex flex-col ml-5" style={{ maxWidth: "250px" }}>
+          <div className="flex flex-col sm:ml-5 items-center sm:items-start text-center sm:text-left  mt-5 sm:mt-0" style={{ maxWidth: "250px" }}>
             <span className="text-sm sm:text-base font-bold">
               {testimonial.profile.name}
             </span>
