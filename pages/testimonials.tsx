@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { Layout } from "../components/layout/layout";
+import { testimonials } from "../data/testimonials";
 
 const Testimonials: NextPage = () => {
   return (

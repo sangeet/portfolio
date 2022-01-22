@@ -54,3 +54,14 @@ button {
 .white-strong strong {
   @apply text-slate-100;
 }
+
+.scrollbar-hidden {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}

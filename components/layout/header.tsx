@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header id="header" className="py-5 text-slate-100">
+    <header id="header" className="py-5 text-slate-100 z-20">
       <div className="container flex justify-between items-center">
         <Link href="/">
           <a>
@@ -19,7 +19,7 @@ const Nav = () => {
   const links = [
     { title: "Home", href: "/" },
     { title: "Profile", href: "/profile" },
-    { title: "Projects", href: "/projects" },
+    // { title: "Projects", href: "/projects" },
   ];
   return (
     <nav>
