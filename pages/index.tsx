@@ -26,7 +26,7 @@ const Intro: FunctionComponent = () => {
   return (
     <section
       id="intro"
-      className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-12 lg:py-24 container"
+      className="grid grid-cols-4 lg:grid-cols-12 gap-12 xl:gap-24 py-12 lg:py-24 container"
     >
       <div className="flex items-center justify-center col-span-4 p-10 lg:p-0 nm-flat-slate-800-lg rounded bg-pattern">
         <div className="h-72 w-72 p-5 rounded-full nm-inset-slate-800-lg overflow-hidden relative">
@@ -66,7 +66,12 @@ const Intro: FunctionComponent = () => {
             expand my skills to contribute higher quality code which helps solve
             new problems.
           </p>
-          <div className="flex items-center mt-8">{<SocialIcons />}</div>
+          <div className="flex flex-wrap items-center">
+            <div className="flex items-center mt-8">{<SocialIcons />}</div>
+            <Link href="/profile">
+              <a className="mt-8 px-7 py-5 nm-flat-slate-800 font-bold">View Full Profile</a>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -125,8 +130,12 @@ const Testimonials: FunctionComponent = () => {
             />
           </div>
           <div className="flex flex-col ml-5" style={{ maxWidth: "250px" }}>
-            <span className="text-sm sm:text-base font-bold">{testimonial.profile.name}</span>
-            <span className="text-xs sm:text-sm my-1">{testimonial.profile.title}</span>
+            <span className="text-sm sm:text-base font-bold">
+              {testimonial.profile.name}
+            </span>
+            <span className="text-xs sm:text-sm my-1">
+              {testimonial.profile.title}
+            </span>
             <span className="text-xs">{testimonial.profile.location}</span>
           </div>
         </div>
