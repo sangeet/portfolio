@@ -65,7 +65,7 @@ const BlockLayout: FunctionComponent<BlockLayoutPropsType> = ({
   const margin = hasMarginBottom ? "mb-10" : "mb-0";
   return (
     <div className={margin}>
-      <h2 className="text-2xl font-bold mb-5">{title}</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-5">{title}</h2>
       <div className="flex flex-col mb-10 nm-convex-slate-800-sm p-5 md:px-10 md:py-8 rounded-lg bg-pattern">
         {children}
       </div>
@@ -158,7 +158,7 @@ const IntroBlock = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between mb-16 p-5 md:p-8 nm-convex-slate-800-sm rounded bg-pattern">
       <div className="flex flex-col">
-        <h1 className="mb-3 font-bold text-2xl md:text-3xl">Sangeet Khatri</h1>
+        <h1 className="mb-3 font-bold text-2xl md:text-3xl lg:text-4xl">Sangeet Khatri</h1>
         <span className="text-xl md:text-2xl">Freelance Frontend Engineer</span>
         <span className="text-sm">Bengaluru, Karnataka, India</span>
       </div>
