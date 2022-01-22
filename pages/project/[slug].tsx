@@ -36,39 +36,43 @@ type ProjectPropsType = {
 const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
   return (
     <Layout>
-      <section className="container py-12 lg:py-24 grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24">
-        <div className="col-span-4 lg:col-span-6">
-          <Image
-            src={data.image}
-            alt={data.title}
-            className="rounded-lg shadow-lg"
-            placeholder="blur"
-            layout="responsive"
-          />
-        </div>
-        <div className="col-span-4 lg:col-span-6 flex flex-col">
-          <span className="mb-5 text-orange-400">{data.type}</span>
-          <h1 className="text-4xl font-bold">{data.title}</h1>
-          <p className="my-5">{data.description}</p>
-          <div className="flex flex-wrap">
-            {data.tags?.map((tag, index) => (
-              <span key={index} className="tag mr-3">
-                {tag}
-              </span>
-            ))}
+      <section className="container py-12 lg:py-24 grid grid-cols-4 xl:grid-cols-12 gap-12 rounded-lg">
+        <div className="col-span-4 xl:col-span-8 nm-flat-slate-800-lg p-5">
+          <div className="p-2 nm-inset-slate-800 rounded-lg">
+            <Image
+              src={data.image}
+              alt={data.title}
+              className="rounded-lg"
+              placeholder="blur"
+              layout="responsive"
+            />
           </div>
-
-          <a
-            href={data.link}
-            target="_blank"
-            rel="noreferrer"
-            className="self-start nm-flat-slate-800-lg px-5 py-3 rounded mt-10 text-white flex"
-          >
-            <div className="border-r pr-2 mr-2">
-              <ExternalLinkIcon className="h-6 w-6" />
+        </div>
+        <div className="col-span-4 xl:col-span-4 p-5 nm-flat-slate-800-lg rounded-lg">
+          <div className="flex flex-col p-8 nm-inset-slate-800 rounded-lg h-full bg-pattern">
+            <span className="mb-5 text-orange-400">{data.type}</span>
+            <h1 className="text-4xl font-bold">{data.title}</h1>
+            <p className="my-5">{data.description}</p>
+            <div className="flex flex-wrap">
+              {data.tags?.map((tag, index) => (
+                <span key={index} className="tag mr-3">
+                  {tag}
+                </span>
+              ))}
             </div>
-            <span className="text-lg">Visit Website</span>
-          </a>
+
+            <a
+              href={data.link}
+              target="_blank"
+              rel="noreferrer"
+              className="self-start nm-flat-slate-800-lg px-5 py-3 rounded mt-10 text-white flex"
+            >
+              <div className="border-r pr-2 mr-2">
+                <ExternalLinkIcon className="h-6 w-6" />
+              </div>
+              <span className="text-lg">Visit Website</span>
+            </a>
+          </div>
         </div>
       </section>
     </Layout>
