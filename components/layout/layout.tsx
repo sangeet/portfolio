@@ -12,6 +12,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       <Head>
         <title>Sangeet Khatri</title>
         <meta name="description" content="Freelance Frontend Engineer" />
+        <meta name="theme-color" content="#1E293B" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <div id="body-root" className="h-full min-h-screen flex flex-col">

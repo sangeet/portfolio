@@ -62,7 +62,7 @@ const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
             href={data.link}
             target="_blank"
             rel="noreferrer"
-            className="self-start bg-orange-700 px-5 py-3 rounded mt-10 text-white flex"
+            className="self-start nm-flat-slate-800-lg px-5 py-3 rounded mt-10 text-white flex"
           >
             <div className="border-r pr-2 mr-2">
               <ExternalLinkIcon className="h-6 w-6" />

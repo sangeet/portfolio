@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 html {
-  @apply bg-slate-900;
+  @apply nm-flat-slate-800;
 }
 
 body {
-  @apply text-slate-300 bg-gradient-to-b from-slate-900 to-slate-800;
+  @apply text-slate-400 nm-flat-slate-800;
 }
 
 header {
-  @apply bg-slate-900 sticky top-0;
+  @apply bg-slate-800 sticky top-0 shadow-lg;
 }
 
 footer {
-  @apply bg-slate-900;
+  @apply nm-flat-slate-800-lg;
 }
 
 .container {
@@ -23,11 +23,11 @@ footer {
 }
 
 .section-heading {
-  @apply font-medium text-4xl text-slate-100;
+  @apply font-medium text-4xl text-slate-300;
 }
 
 .card {
-  @apply bg-gradient-to-br from-slate-700 to-slate-800 flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow;
+  @apply nm-flat-slate-800-lg flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow;
 }
 
 .interactive {
@@ -48,11 +48,11 @@ button {
 }
 
 .tag {
-  @apply bg-slate-600 px-2 py-1 rounded flex-shrink-0 my-1;
+  @apply nm-flat-slate-800 px-2 py-1 rounded flex-shrink-0 my-1;
 }
 
 .white-strong strong {
-  @apply text-slate-100;
+  @apply text-slate-300;
 }
 
 .scrollbar-hidden {
@@ -64,4 +64,8 @@ button {
   /* WebKit */
   width: 0;
   height: 0;
+}
+
+.dot {
+  @apply h-5 w-5 rounded-full nm-concave-slate-800-lg mx-2 interactive cursor-pointer;
 }

@@ -29,7 +29,7 @@ const Intro: FunctionComponent = () => {
       className="grid grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-24 py-12 lg:py-24 container"
     >
       <div className="flex items-center justify-center col-span-4 p-10 lg:p-0">
-        <div className="h-72 w-72 rounded-full shadow-lg border-4 border-slate-700 overflow-hidden relative">
+        <div className="h-72 w-72 rounded-full nm-flat-slate-800 overflow-hidden relative">
           <Image
             src={myPhoto}
             alt="Sangeet Profile Photo"
@@ -37,10 +37,10 @@ const Intro: FunctionComponent = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col justify-center col-span-4 lg:col-span-8">
+      <div className="flex flex-col justify-center col-span-4 lg:col-span-8 nm-flat-slate-800-lg p-10 rounded">
         <div className="flex flex-col">
           <span className="text-5xl font-medium text-orange-400 mb-5">Hi,</span>
-          <span className="font-medium text-slate-100 text-xl">
+          <span className="font-medium text-slate-300 text-xl">
             My name is Sangeet Khatri.
           </span>
         </div>
@@ -112,9 +112,9 @@ const Projects: FunctionComponent = () => {
 const Testimonials: FunctionComponent = () => {
   const slides = testimonials.map((testimonial, index) => (
     <div key={index} className="w-full my-5 flex-shrink-0 px-3 snap-start">
-      <div className="max-w-5xl mx-auto px-0 md:px-12 py-5 md:py-12 lg:py-24 flex flex-col items-center justify-center h-full">
+      <div className="max-w-5xl mx-auto px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full md:nm-flat-slate-800-lg rounded-xl">
         <p className="text-center text-lg">{testimonial.text}</p>
-        <div className="flex items-center mt-10 bg-slate-700 p-3 rounded-3xl shadow">
+        <div className="flex items-center mt-10 px-5 py-3 nm-flat-slate-800 rounded-xl">
           <div className="rounded-full shadow overflow-hidden h-24 w-24">
             <Image
               src={testimonial.profile.image}
