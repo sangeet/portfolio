@@ -12,7 +12,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       <Head>
         <title>Sangeet Khatri</title>
         <meta name="description" content="Freelance Frontend Engineer" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <div id="body-root" className="h-full min-h-screen flex flex-col">
         <Header />
