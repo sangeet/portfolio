@@ -72,7 +72,7 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props) => {
         </div>
       </div>
       <div
-        className="flex w-full overflow-scroll scroll-smooth my-5 -mx-3 snap-mandatory snap-x scrollbar-hidden"
+        className="flex w-full overflow-scroll scroll-smooth my-5 sm:-mx-3 snap-mandatory snap-x scrollbar-hidden"
         ref={carouselRef}
       >
         {slides}
