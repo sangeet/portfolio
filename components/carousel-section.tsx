@@ -20,7 +20,7 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props) => {
   const [width, setWidth] = useState(100);
   useEffect(() => {
     const resizeObserver = new ResizeObserver((event) => {
-      setWidth(event[0].contentBoxSize[0].inlineSize);
+      setWidth(event[0].contentRect.width);
     });
     //@ts-ignore
     resizeObserver.observe(carouselRef.current);
@@ -29,11 +29,13 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props) => {
   const handleLeftClick = () => {
     carouselRef.current?.scroll({
       left: carouselRef.current.scrollLeft - width,
+      behavior: "smooth",
     });
   };
   const handleRightClick = () => {
     carouselRef.current?.scroll({
       left: carouselRef.current.scrollLeft + width,
+      behavior: "smooth",
     });
   };
   return (
