@@ -35,11 +35,11 @@ footer {
 }
 
 .interactive:hover {
-  @apply brightness-110;
+  @apply brightness-125;
 }
 
 .interactive:active {
-  @apply brightness-90;
+  @apply brightness-75;
 }
 
 a,
