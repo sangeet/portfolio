@@ -66,7 +66,9 @@ const BlockLayout: FunctionComponent<BlockLayoutPropsType> = ({
   return (
     <div className={margin}>
       <h2 className="text-2xl font-bold mb-5">{title}</h2>
-      <div className="flex flex-col mb-10">{children}</div>
+      <div className="flex flex-col mb-10 nm-convex-slate-800-sm p-5 md:px-10 md:py-8 rounded-lg bg-pattern">
+        {children}
+      </div>
     </div>
   );
 };
@@ -92,8 +94,8 @@ const EducationBlock = () => {
       <span className="text-sm">2014 – 2017</span>
       <div className="mt-3 flex flex-col">
         <p>
-          Bachelor of Science - B.Sc Field Of Study Computer Science,
-          Mathematics and Electronics
+          Bachelor of Science - B.Sc Computer Science, Mathematics and
+          Electronics
         </p>
         <span>3.2 GPA / 4.0</span>
       </div>
@@ -126,7 +128,7 @@ const ExperienceBlock = () => {
 const AboutBlock = () => {
   return (
     <BlockLayout title="About">
-      <div className="mt-3">
+      <div>
         <p>
           I am a <strong>Frontend Engineer</strong> based in{" "}
           <strong>India</strong>. National and International customers have
@@ -154,17 +156,15 @@ const AboutBlock = () => {
 
 const IntroBlock = () => {
   return (
-    <div className="flex flex-col mb-16">
+    <div className="flex flex-col md:flex-row justify-between mb-16 p-5 md:p-8 nm-convex-slate-800-sm rounded bg-pattern">
       <div className="flex flex-col">
-        <h1 className="mt-5 mb-3 font-bold text-3xl">Sangeet Khatri</h1>
-        <span className="text-2xl">
-          Freelance Frontend Engineer | Ex - D. E. Shaw
-        </span>
+        <h1 className="mb-3 font-bold text-2xl md:text-3xl">Sangeet Khatri</h1>
+        <span className="text-xl md:text-2xl">Freelance Frontend Engineer</span>
         <span className="text-sm">Bengaluru, Karnataka, India</span>
       </div>
-      <div className="flex flex-col mt-5">
-        <span>+91 8553221820</span>
-        <span>sangeet.khatri@outlook.com</span>
+      <div className="flex flex-col md:text-right mt-5">
+        <span className="text-2xl">+91-85532 21820</span>
+        <span className="mt-1">sangeet.khatri@outlook.com</span>
       </div>
     </div>
   );
