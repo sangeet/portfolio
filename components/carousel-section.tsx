@@ -57,13 +57,13 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props) => {
           <h2 className="section-heading">{title}</h2>
           <div className="flex ml-5">
             <button
-              className="nm-flat-slate-800 px-2 mr-2"
+              className="carousel-button"
               onClick={() => handleLeftClick()}
             >
               <ChevronRight className="h-6 w-6 transform rotate-180" />
             </button>
             <button
-              className="nm-flat-slate-800 px-2"
+              className="carousel-button"
               onClick={() => handleRightClick()}
             >
               <ChevronRight className="h-6 w-6" />
