@@ -1,42 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { NextPage } from "next";
-import { FunctionComponent } from "react";
 import { Layout } from "../components/layout/layout";
 
-const experiences = [
-  {
-    title: "Frontend Engineer",
-    employer: "Freelance, Self Employed",
-    startDate: "May 2019",
-    endDate: "Present",
-    description:
-      "Remote work with front-end web technologies on hourly and per project basis. Includes projects of all levels of pre-dominantly JAMStack sites as well as front end development with Javascript and related frameworks, CI/CD setups, hosting, etc.",
-  },
-  {
-    title: "Technology Associate - Sysadmin",
-    employer: "D. E. SHAW INDIA PRIVATE LIMITED",
-    startDate: "May 2017",
-    endDate: "October 2018",
-    location: "Hyderabad Area, India",
-    description:
-      "Systems Technical Support Administrator - First line of support and systems administration tasks involving Linux/Windows/Storage/UC in a firm of around 2000 employees worldwide in HYD, NYC, HK, LON. Administering user sided infrastructure by co-coordinating with senior engineering teams.",
-  },
-];
-
-const skillset = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "React",
-  "Redux",
-  "Vue",
-  "Gatsby",
-  "TailwindCSS",
-  "Next.js",
-  "Node.js",
-  "Express",
-];
+import { IntroBlock } from "../sections/profile/intro";
+import { AboutBlock } from "../sections/profile/about";
+import { ExperienceBlock } from "../sections/profile/experience";
+import { EducationBlock } from "../sections/profile/education";
+import { SkillsetBlock } from "../sections/profile/skillset";
 
 const Profile: NextPage = () => {
   return (
@@ -51,123 +21,4 @@ const Profile: NextPage = () => {
     </Layout>
   );
 };
-
-type BlockLayoutPropsType = {
-  title: string;
-  hasMarginBottom?: boolean;
-  children: React.ReactNode;
-};
-const BlockLayout: FunctionComponent<BlockLayoutPropsType> = ({
-  title,
-  hasMarginBottom = true,
-  children,
-}) => {
-  const margin = hasMarginBottom ? "mb-10" : "mb-0";
-  return (
-    <div className={margin}>
-      <h2 className="text-2xl md:text-3xl font-bold mb-5">{title}</h2>
-      <div className="flex flex-col mb-10 nm-convex-slate-800-sm p-5 md:px-10 md:py-8 rounded-lg bg-pattern">
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const SkillsetBlock = () => {
-  return (
-    <BlockLayout title="Skillset" hasMarginBottom={false}>
-      <div className="flex flex-wrap">
-        {skillset.map((skill, index) => (
-          <span key={index} className="mr-3">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </BlockLayout>
-  );
-};
-
-const EducationBlock = () => {
-  return (
-    <BlockLayout title="Education">
-      <h3 className="text-xl font-bold">Christ University Bangalore</h3>
-      <span className="text-sm">2014 – 2017</span>
-      <div className="mt-3 flex flex-col">
-        <p>
-          Bachelor of Science - B.Sc Computer Science, Mathematics and
-          Electronics
-        </p>
-        <span>3.2 GPA / 4.0</span>
-      </div>
-    </BlockLayout>
-  );
-};
-
-const ExperienceBlock = () => {
-  return (
-    <BlockLayout title="Experience">
-      {experiences.map((exp, index) => (
-        <div
-          key={index}
-          className={`flex flex-col ${
-            index === experiences.length - 1 ? "" : "mb-10"
-          }`}
-        >
-          <h3 className="text-xl font-bold">{exp.title}</h3>
-          <span className="text-sm">{exp.employer}</span>
-          <div className="text-sm">
-            <span>{exp.startDate}</span> - <span>{exp.endDate}</span>
-          </div>
-          <p className="mt-3">{exp.description}</p>
-        </div>
-      ))}
-    </BlockLayout>
-  );
-};
-
-const AboutBlock = () => {
-  return (
-    <BlockLayout title="About">
-      <div>
-        <p>
-          I am a <strong>Frontend Engineer</strong> based in{" "}
-          <strong>India</strong>. National and International customers have
-          relied on me for remote frontend web services including{" "}
-          <strong>
-            HTML, CSS, JS, Typescript, React, Vue, Jamstack, TailwindCSS, CMS,
-            CI/CD setups and other related technologies
-          </strong>
-          .
-        </p>
-        <p className="my-5">
-          As a freelancer, I also work with web agencies, companies, startups
-          and individuals to meet their development needs for their digital
-          businesses.
-        </p>
-        <p>
-          I&apos;m interested in learning things related to technology and
-          expand my skills to contribute higher quality code which helps solve
-          new problems.
-        </p>
-      </div>
-    </BlockLayout>
-  );
-};
-
-const IntroBlock = () => {
-  return (
-    <div className="flex flex-col md:flex-row justify-between mb-16 p-5 md:p-8 nm-convex-slate-800-sm rounded bg-pattern">
-      <div className="flex flex-col">
-        <h1 className="mb-3 font-bold text-2xl md:text-3xl lg:text-4xl">Sangeet Khatri</h1>
-        <span className="text-xl md:text-2xl">Freelance Frontend Engineer</span>
-        <span className="text-sm">Bengaluru, Karnataka, India</span>
-      </div>
-      <div className="flex flex-col md:text-right mt-5">
-        <span className="text-2xl">+91-85532 21820</span>
-        <span className="mt-1">sangeet.khatri@outlook.com</span>
-      </div>
-    </div>
-  );
-};
-
 export default Profile;
