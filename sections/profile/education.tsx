@@ -1,16 +1,14 @@
 import { BlockLayout } from "./block-layout";
+import { education } from "../../data/profile";
 
 const EducationBlock = () => {
   return (
     <BlockLayout title="Education">
-      <h3 className="text-xl font-bold">Christ University Bangalore</h3>
-      <span className="text-sm">2014 – 2017</span>
+      <h3 className="text-xl font-bold">{education.school}</h3>
+      <span className="text-sm">{education.duration}</span>
       <div className="mt-3 flex flex-col">
-        <p>
-          Bachelor of Science - B.Sc Computer Science, Mathematics and
-          Electronics
-        </p>
-        <span>3.2 GPA / 4.0</span>
+        <p>{education.course}</p>
+        <span>{education.gpa}</span>
       </div>
     </BlockLayout>
   );

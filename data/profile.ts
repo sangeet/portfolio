@@ -33,4 +33,16 @@ const experiences = [
   },
 ];
 
-export { skillset, experiences };
+const education = {
+  school: "Christ University Bangalore",
+  duration: "2014 – 2017",
+  course:
+    "Bachelor of Science - B.Sc Computer Science, Mathematics and Electronics",
+  gpa: "3.2 GPA / 4.0",
+};
+
+const location = "Bangalore, India";
+const email = "sangeet.khatri@outlook.com";
+const phone = "+91 8553221820";
+
+export { skillset, experiences, location, email, phone, education };
