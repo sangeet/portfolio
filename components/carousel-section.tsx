@@ -40,15 +40,15 @@ const CarouselSection: FunctionComponent<CarouselSectionProps> = (props) => {
     });
   };
 
-  const scrollTo = (index: number) => {
-    if (slidesList) {
-      slidesList[index].scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "start",
-      });
-    }
-  };
+  // const scrollTo = (index: number) => {
+  //   if (slidesList) {
+  //     slidesList[index].scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "nearest",
+  //       inline: "start",
+  //     });
+  //   }
+  // };
 
   return (
     <section className="flex flex-col container py-12 lg:py-24">

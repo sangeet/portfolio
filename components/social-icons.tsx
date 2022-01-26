@@ -19,7 +19,7 @@ const SocialIcons = () => {
     {
       title: "Upwork",
       icon: UpworkIcon,
-      href: "https://www.upwork.com/freelancers/~015f4ecffa7bc1b54",
+      href: "https://www.upwork.com/freelancers/~015f4ecffa7bc1b547",
     },
   ];
   return (
