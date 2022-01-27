@@ -8,6 +8,10 @@ type MetaTag = {
 };
 const metatags: MetaTag[] = [
   {
+    name: "title",
+    content: "Sangeet Khatri",
+  },
+  {
     name: "description",
     content: description,
   },
@@ -17,7 +21,7 @@ const metatags: MetaTag[] = [
   },
   {
     name: "subtitle",
-    content: `Portfolio | %{title}`,
+    content: `Portfolio | ${title}`,
   },
   {
     name: "author",
