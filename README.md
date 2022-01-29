@@ -1,6 +1,6 @@
 My Portfolio (Work In Progress)
 
-URL : https://sangeet.vercel.app/
+URL : https://sangeet.dev
 
 Uses:
 
