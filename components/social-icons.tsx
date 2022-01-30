@@ -1,27 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { LinkedinIcon } from "./icons/linkedin";
-import { UpworkIcon } from "./icons/upwork";
-import { GithubIcon } from "./icons/github";
+import { socialLinks } from "../data/profile";
 
 const SocialIcons = () => {
-  const socialLinks = [
-    {
-      title: "Github",
-      icon: GithubIcon,
-      href: "https://www.github.com/sangeet",
-    },
-    {
-      title: "LinkedIn",
-      icon: LinkedinIcon,
-      href: "https://www.linkedin.com/in/sangeet-khatri-16283027/",
-    },
-    {
-      title: "Upwork",
-      icon: UpworkIcon,
-      href: "https://www.upwork.com/freelancers/~015f4ecffa7bc1b547",
-    },
-  ];
   return (
     <>
       {socialLinks.map((link, index) => (

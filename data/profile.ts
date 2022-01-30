@@ -1,3 +1,8 @@
+import { GithubIcon } from "../components/icons/github";
+import { LinkedinIcon } from "../components/icons/linkedin";
+import { RedditIcon } from "../components/icons/reddit";
+import { UpworkIcon } from "../components/icons/upwork";
+
 const skillset = [
   "HTML",
   "CSS",
@@ -45,4 +50,35 @@ const location = "Bangalore, India";
 const email = "sangeet.khatri@outlook.com";
 const phone = "+91 8553221820";
 
-export { skillset, experiences, location, email, phone, education };
+const socialLinks = [
+  {
+    title: "Github",
+    icon: GithubIcon,
+    href: "https://www.github.com/sangeet",
+  },
+  {
+    title: "LinkedIn",
+    icon: LinkedinIcon,
+    href: "https://www.linkedin.com/in/sangeet-khatri-16283027/",
+  },
+  {
+    title: "Upwork",
+    icon: UpworkIcon,
+    href: "https://www.upwork.com/freelancers/~015f4ecffa7bc1b547",
+  },
+  {
+    title: "Reddit",
+    icon: RedditIcon,
+    href: "https://www.reddit.com/user/SangeetDev",
+  },
+];
+
+export {
+  education,
+  email,
+  experiences,
+  location,
+  phone,
+  skillset,
+  socialLinks,
+};
