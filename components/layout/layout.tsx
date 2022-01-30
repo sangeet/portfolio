@@ -13,7 +13,8 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
     <div id="root" className="min-h-screen">
       <Head>
         <title>Sangeet Khatri</title>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="favicon.svg" />
+        <link rel="mask-icon" href="favicon.svg" color="#000000" />
         {metatags.map((tag, index) => (
           <meta key={index} {...tag} />
         ))}

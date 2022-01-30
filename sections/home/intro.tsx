@@ -32,9 +32,9 @@ const IntroText = () => {
     <>
       <div className="flex flex-col">
         <span className="text-5xl font-medium text-orange-400 mb-5">Hi,</span>
-        <span className="font-medium text-slate-300 text-xl">
-          My name is Sangeet Khatri.
-        </span>
+        <div className="font-medium text-slate-300 text-xl">
+          My name is <h1 className="inline">Sangeet Khatri</h1>.
+        </div>
       </div>
       <div className="my-5">
         <p className="white-strong">

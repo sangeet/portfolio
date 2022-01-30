@@ -1,4 +1,4 @@
-const title = "Sangeet Khatri";
+const title = "Sangeet Khatri | Portfolio";
 const URL = "https://sangeet.dev";
 const description = "I am a Freelance Frontend Engineer based in India.";
 
@@ -9,7 +9,7 @@ type MetaTag = {
 const metatags: MetaTag[] = [
   {
     name: "title",
-    content: "Sangeet Khatri",
+    content: title,
   },
   {
     name: "description",
