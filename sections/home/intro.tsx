@@ -48,9 +48,8 @@ const IntroText = () => {
           .
         </p>
         <p className="my-5">
-          As a freelancer, I also work with web agencies, companies, startups
-          and individuals to meet their development needs for their digital
-          businesses.
+          I have worked with web agencies, companies, startups and individuals
+          to meet their development needs for their digital businesses.
         </p>
         <p>
           I&apos;m interested in learning things related to technology and
