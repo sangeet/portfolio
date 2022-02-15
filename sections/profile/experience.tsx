@@ -16,7 +16,7 @@ const ExperienceBlock = () => {
           <div className="text-sm">
             <span>{exp.startDate}</span> - <span>{exp.endDate}</span>
           </div>
-          <p className="mt-3">{exp.description}</p>
+          {exp.description && <p className="mt-3">{exp.description}</p>}
         </div>
       ))}
     </BlockLayout>

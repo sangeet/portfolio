@@ -20,12 +20,20 @@ const skillset = [
 
 const experiences = [
   {
+    title: "Senior Frontend Engineer",
+    employer: "BLKBOX.ai",
+    startDate: "February 2022",
+    endDate: "Present",
+    location: "Remote",
+    description: "",
+  },
+  {
     title: "Frontend Engineer",
     employer: "Freelance, Self Employed",
     startDate: "May 2019",
-    endDate: "Present",
+    endDate: "January 2022",
     description:
-      "Remote work with front-end web technologies on hourly and per project basis. Includes projects of all levels of pre-dominantly JAMStack sites as well as front end development with Javascript and related frameworks, CI/CD setups, hosting, etc.",
+      "Freelance work with front-end web technologies on hourly and per project basis. Included projects of all levels of pre-dominantly JAMStack sites as well as front end development with Javascript and related frameworks, CI/CD setups, hosting, etc.Freelance work with front-end web technologies on hourly and per project basis. Includes projects of all levels of pre-dominantly JAMStack sites as well as front end development with Javascript and related frameworks, CI/CD setups, hosting, etc.",
   },
   {
     title: "Technology Associate - Sysadmin",

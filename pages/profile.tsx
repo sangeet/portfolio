@@ -11,7 +11,7 @@ import { SkillsetBlock } from "../sections/profile/skillset";
 const Profile: NextPage = () => {
   return (
     <Layout>
-      <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern">
+      <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern">
         <IntroBlock />
         <AboutBlock />
         <ExperienceBlock />

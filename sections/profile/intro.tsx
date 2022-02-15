@@ -1,6 +1,6 @@
 const IntroBlock = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between mb-16 p-5 md:p-8 nm-convex-slate-800-sm rounded bg-pattern">
+    <div className="flex flex-col md:flex-row justify-between mb-16 p-5 md:p-8 bg-pattern">
       <div className="flex flex-col">
         <h1 className="mb-3 font-bold text-2xl md:text-3xl lg:text-4xl">
           Sangeet Khatri
