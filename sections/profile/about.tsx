@@ -5,7 +5,7 @@ const AboutBlock = () => {
     <BlockLayout title="About">
       <div>
         <p>
-          I am a <strong>Frontend Engineer</strong> based in{" "}
+          I am a <strong>Frontend Developer</strong> based in{" "}
           <strong>India</strong>. National and International customers have
           relied on me for remote frontend web services including{" "}
           <strong>

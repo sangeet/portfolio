@@ -1,6 +1,6 @@
 const title = "Sangeet Khatri | Portfolio";
 const URL = "https://sangeet.dev";
-const description = "Frontend Engineer based in India";
+const description = "Frontend Developer based in India";
 
 type MetaTag = {
   name: string;

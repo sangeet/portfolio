@@ -12,7 +12,11 @@ const ExperienceBlock = () => {
           }`}
         >
           <h3 className="text-xl font-bold">{exp.title}</h3>
-          <span className="text-sm">{exp.employer}</span>
+          <div className="flex text-sm">
+            <span>{exp.employer}</span>
+            <span className="mx-1">-</span>
+            <span>{exp.location}</span>
+          </div>
           <div className="text-sm">
             <span>{exp.startDate}</span> - <span>{exp.endDate}</span>
           </div>

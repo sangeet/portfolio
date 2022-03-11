@@ -5,7 +5,7 @@ const IntroBlock = () => {
         <h1 className="mb-3 font-bold text-2xl md:text-3xl lg:text-4xl">
           Sangeet Khatri
         </h1>
-        <span className="text-xl md:text-2xl">Frontend Engineer</span>
+        <span className="text-xl md:text-2xl">Frontend Developer</span>
         <span className="text-sm">Bengaluru, Karnataka, India</span>
       </div>
       <div className="flex flex-col md:text-right mt-5">
