@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SocialIcons } from "../../components/social-icons";
-import myPhoto from "../../public/people/me.jpg";
+import myPhoto from "../../public/people/sangeet.jpeg";
 
 const IntroSection: FunctionComponent = () => {
   return (

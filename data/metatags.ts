@@ -57,7 +57,7 @@ const metatags: MetaTag[] = [
   },
   {
     name: "og:image",
-    content: "/public/people/me.jpg",
+    content: "/public/people/sangeet.jpeg",
   },
   {
     name: "og:description",
