@@ -37,6 +37,8 @@ const IntroText = () => {
         </div>
       </div>
       <div className="my-5">
+
+
         <p className="white-strong">
           I am a <strong>Frontend Developer</strong> based in{" "}
           <strong>India</strong>. National and International customers have
@@ -54,10 +56,10 @@ const IntroText = () => {
         <p>
           I&apos;m interested in learning things related to technology and
           expand my skills to contribute higher quality code which helps solve
-          new problems.
+          new problems. Curiously exploring Rust, Kotlin and Flutter.
         </p>
-        <div className="flex flex-wrap items-center">
-          <div className="flex items-center mt-8">{<SocialIcons />}</div>
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center mt-8 gap-3">{<SocialIcons />}</div>
           <Link href="/profile">
             <a className="mt-8 px-7 py-5 nm-flat-slate-800 font-bold">
               View Full Profile

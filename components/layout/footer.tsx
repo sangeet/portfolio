@@ -16,7 +16,7 @@ const Footer = () => {
             <a href={`tel:${phone}`}>{phone}</a>
           </address>
         </div>
-        <div className="flex items-center mt-10 sm:mt-0">
+        <div className="flex items-center mt-10 sm:mt-0 gap-3">
           <SocialIcons />
         </div>
       </div>

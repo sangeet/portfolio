@@ -21,7 +21,7 @@ const AboutBlock = () => {
         <p>
           I&apos;m interested in learning things related to technology and
           expand my skills to contribute higher quality code which helps solve
-          new problems.
+          new problems. Curiously exploring Rust, Kotlin and Flutter.
         </p>
       </div>
     </BlockLayout>
