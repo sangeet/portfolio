@@ -22,7 +22,7 @@ const testimonials: TestimonialType[] = [
      continue our relationship for years to come.",
         source: {
             site: "LinkedIn",
-            link: "https://www.linkedin.com/in/sangeet-khatri/"
+            link: "https://www.linkedin.com/in/sangeet-khatri/details/recommendations/"
         },
     },
     {
@@ -32,7 +32,7 @@ const testimonials: TestimonialType[] = [
       and I hope to work with him more going forward",
         source: {
             site: "LinkedIn",
-            link: "https://www.linkedin.com/in/sangeet-khatri/"
+            link: "https://www.linkedin.com/in/sangeet-khatri/details/recommendations/"
         },
     },
     {
@@ -56,7 +56,7 @@ const testimonials: TestimonialType[] = [
       I'm not surprised, if you can get your hands on him, by all means do it but do it fast!",
         source: {
             site: "LinkedIn",
-            link: "https://www.linkedin.com/in/sangeet-khatri/"
+            link: "https://www.linkedin.com/in/sangeet-khatri/details/recommendations/"
         },
     },
 ];
