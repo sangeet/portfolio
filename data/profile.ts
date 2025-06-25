@@ -1,35 +1,47 @@
-import {GithubIcon} from "../components/icons/github";
-import {LinkedinIcon} from "../components/icons/linkedin";
-import {RedditIcon} from "../components/icons/reddit";
-import {UpworkIcon} from "../components/icons/upwork";
+import { GithubIcon } from "../components/icons/github";
+import { LinkedinIcon } from "../components/icons/linkedin";
+import { RedditIcon } from "../components/icons/reddit";
+import { UpworkIcon } from "../components/icons/upwork";
 
 const skillset = [
     "Web Development",
-    "React, Vue, AlpineJS",
-    "JavaScript, Typescript and related ecosystem",
-    "Tailwind CSS and similar CSS libraries",
-    "Next.js, CRA, React Frameworks",
-    "Redux, Context, State Management",
-    "Linux Administration, Troubleshooting",
-    "HTML5, CSS",
-    "Flutter (Dart)",
-    "Node.js, hands on experience",
-    "C, Kotlin",
+    "React.js",
+    "Javascript/Typescript",
+    "HTML",
+    "CSS",
+    "TailwindCSS",
+    "Next.js",
+    "grpc", "Kotlin",
+    "Firebase", 
+    "Firestore", 
+    "Linux"
 ];
 
 const experiences = [
     {
+        title: "Full Stack Developer",
+        employer: "Jolly Learning Ltd.",
+        startDate: "October 2023",
+        endDate: "April 2025",
+        location: "Valencia, Spain (Remote)",
+        description: `
+        - Contributed to data models and back-end (Kotlin) + gRPC (gRPC-web) API using the said models.
+        - Managed user permissions, security rules, and data migrations for changes in data models, workflows, and APIs. Mix of Firebase and custom solutions.
+        - Developed and maintained Firestore and BigQuery data along with data models and permissions
+        - Contributed to Google Cloud scheduled scripts and services along with CI/CD setup.`
+    },
+    {
         title: "Frontend Developer",
-        employer: "Jolly Technologies",
+        employer: "Jolly Learning Ltd.",
         startDate: "March 2022",
-        endDate: "Present",
+        endDate: "September 2023",
         location: "Valencia, Spain (Remote)",
         description: `Technologies: Web, React, TailwindCSS, Firebase, Flutter.
-        - Created two public facing websites: https://www.jollyclassroom.com and https://www.jollyfutures.org.
-        - Created internal distribution dashboard for managing product distribution, purchases, administrative tasks and related workflows.
-        
-        Website: https://www.jollytechnologies.co.uk/
-        AngelList: https://angel.co/company/jolly-technologies-sl/`,
+        - Created and maintained an internal distribution platform for product distribution, purchases, administrative tasks, support, and related workflows.
+        - Developed and maintained multiple public-facing static websites.
+        - Contributed to Flutter and Flutter web-based applications.
+        - Provided technical support and wrote documentation for app workflows, internal dashboards, and technical queries.
+        - Technologies: Web, React, Typescript, TailwindCSS, Firebase, Flutter, Next.js, protobuf, grpc, Kotlin`,
     },
     {
         title: "Frontend Developer (Freelance)",
@@ -37,7 +49,9 @@ const experiences = [
         startDate: "May 2019",
         endDate: "January 2022",
         location: "Remote",
-        description: `Freelance work with front-end web technologies on hourly and contract basis. Specialized in JAMSTACK architecture along with Javascript, TailwindCSS, CI/CD, CMS setups, hosting and related development tasks. Contributed in 30+ projects in collaboration with over 15 clients/teams remotely across 10+ countries.`
+        description: `- Freelance work with front-end web technologies on hourly and contract basis.
+        - Specialized in Gatsby, Next.js, and related static site generators along with TailwindCSS, CI/CD, CMS setups, hosting and related development tasks.
+        - Contributed in 30+ projects in collaboration with over 15 clients/teams remotely across 10+ countries.`
     },
     {
         title: "Technology Associate - Sysadmin",
@@ -46,7 +60,11 @@ const experiences = [
         endDate: "October 2018",
         location: "Hyderabad Area, India",
         description:
-            "Helpdesk + Sysadmin roles - First line of support and systems administration tasks involving Linux/ Windows/Storage/UC in one of the biggest hedge fund worldwide with employees in HYD, NYC, HK, LON. Administering user facing infrastructure by co-coordinating with senior engineering teams.",
+        `- 7th Largest Hedge fund in the world by AUM (as of 2025)
+        - Helpdesk + Sysadmin roles - First line of support and systems administration tasks involving Linux,
+        Windows, Storage, Mail Servers, Unified Communication infrastructure
+        - Administering user facing infrastructure by co-coordinating with senior engineering teams.
+        `
     },
 ];
 
