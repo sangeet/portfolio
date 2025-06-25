@@ -38,7 +38,7 @@ const ProjectsSection: FunctionComponent = () => {
       </Link>
     </div>
   ));
-  return <CarouselSection title="Projects" slides={slides} />;
+  return <CarouselSection title="Public Projects" slides={slides} />;
 };
 
 export { ProjectsSection };
