@@ -33,7 +33,7 @@ const twelveBarBluesProgression: ChordProgression = [
 function generateProgression(chordProgression: ChordProgression, rootNote: NoteType): Scale[] {
     const scales: Scale[] = [];
     const scale = generateScale(rootNote, majorScaleLogic);
-    
+
     for (const progression of chordProgression) {
         const progressionScale: Scale = [];
         for (const chord of progression) {
@@ -42,17 +42,22 @@ function generateProgression(chordProgression: ChordProgression, rootNote: NoteT
         }
         scales.push(progressionScale);
     }
-    
+
     return scales;
 }
 
-const allNotes: NoteType[] = [ "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" ];
+const allNotes: NoteType[] = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
 
 const majorScaleLogic = [2, 2, 1, 2, 2, 2, 1];
 const minorScaleLogic = [2, 1, 2, 2, 1, 2, 2];
 
-const majorChordLogic = [1,3,5];
-const minorChordLogic = [1,3,5];
+const bluesScale = [2, 1, 1, 3, 2];
+const majorPentatonic = [2, 2, 3, 2, 3];
+const minorPentatonic = [3, 2, 2, 3];
+const mixolydian = [2, 2, 1, 2, 2, 1, 2];
+
+const majorChordLogic = [1, 3, 5];
+const minorChordLogic = [1, 3, 5];
 
 function generateScale(rootNote: NoteType, scaleLogic: number[]): NoteType[] {
     const rootIndex = allNotes.indexOf(rootNote);
@@ -81,7 +86,7 @@ function generateScales(rootNote: NoteType): {
     };
 }
 
-function generateChord(chordLogic: number[], rootNote: NoteType, scale: Scale ): NoteType[] {
+function generateChord(chordLogic: number[], rootNote: NoteType, scale: Scale): NoteType[] {
     const chord: NoteType[] = [];
 
     for (const step of chordLogic) {
@@ -104,4 +109,5 @@ function generateChords(rootNote: NoteType): {
 
 }
 
-export { allNotes, generateScales, generateChords, type NoteType , generateProgression, twelveBarBluesProgression};
+export { allNotes, generateScales, generateChords, type NoteType, generateProgression, generateScale, twelveBarBluesProgression };
+export { bluesScale, minorPentatonic, majorPentatonic, mixolydian };

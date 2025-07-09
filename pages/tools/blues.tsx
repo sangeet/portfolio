@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Layout } from "../../components/layout/layout";
-import { allNotes, generateChords, generateProgression, generateScales, NoteType, twelveBarBluesProgression } from "../../data/blues/chords";
+import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, twelveBarBluesProgression } from "../../data/blues/chords";
 import { KeyboardVisual } from "./chords";
 
 const BluesPage = () => {
@@ -8,6 +8,12 @@ const BluesPage = () => {
     const { majorScale } = generateScales(selectedKey);
     const progression = generateProgression(twelveBarBluesProgression, selectedKey)
     const allChordNotes = Array.from(new Set(progression.flat()));
+    const recommendedScales = {
+        blues: generateScale(selectedKey, bluesScale),
+        minorPentatonic: generateScale(selectedKey, minorPentatonic),
+        majorPentatonic: generateScale(selectedKey, majorPentatonic),
+        mixolydian: generateScale(selectedKey, mixolydian)
+    }
 
     return (
         <Layout>
@@ -22,8 +28,9 @@ const BluesPage = () => {
                         >{note}</button>
                     )}
                 </div>
-                <div className="flex flex-wrap justify-center">
-                    <div className="flex gap-5">
+
+                <div className="flex justify-center">
+                    <div className="flex flex-wrap gap-5">
                         {allChordNotes.map((n, index) => {
                             const chordNotes = generateChords(n).majorChord;
                             return <div
@@ -36,6 +43,7 @@ const BluesPage = () => {
                         )}
                     </div>
                 </div>
+
                 <div className="flex flex-col items-center text-center">
                     {progression.map(lines => (
                         <div
@@ -50,6 +58,20 @@ const BluesPage = () => {
                             }
                         </div>
                     ))}
+                </div>
+
+                <div className="flex flex-col justify-center">
+                    <h2 className="text-lg font-bood">Recommended Scales:</h2>
+                    <div className="flex flex-wrap gap-5">
+                        {Object.entries(recommendedScales).map(([scaleName, scale], index) => {
+                            return <div className="flex flex-col" key={`${scaleName}-${index}`} >
+                                <KeyboardVisual highlightedNotes={scale} />
+                                <span>{scaleName}</span>
+                                <span>({scale.join(" ")})</span>
+                            </div>;
+                        }
+                        )}
+                    </div>
                 </div>
             </div>
         </Layout>
