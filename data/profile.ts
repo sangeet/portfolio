@@ -84,9 +84,9 @@ const education = [
     },
 ];
 
-const location = "Bangalore, India";
+const location = "Setúbal, Portugal";
 const email = "sangeet.khatri@outlook.com";
-const phone = "+91 8553221820";
+const phone = "+351 910 749 525";
 
 const socialLinks = [
     {
