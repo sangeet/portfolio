@@ -1,16 +1,17 @@
+
 import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CarouselSection } from "../../components/carousel-section";
-import { projects } from "../../data/projects";
+import { tools } from "../../data/projects";
 
-const ProjectsSection: FunctionComponent = () => {
-  const slides = projects.map((item, index) => (
+const ToolsSection: FunctionComponent = () => {
+  const slides = tools.map((item, index) => (
     <div
       key={index}
       className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 my-5 flex-shrink-0 px-3 snap-start"
     >
-      <Link href={`/project/${item.slug}`}>
+      <Link href={`/tools/${item.slug}`}>
         <a className="card h-full">
           <div className="block w-full">
             <Image
@@ -38,7 +39,7 @@ const ProjectsSection: FunctionComponent = () => {
       </Link>
     </div>
   ));
-  return <CarouselSection title="Past Freelance Gigs" slides={slides} />;
+  return <CarouselSection title="Personal Projects" slides={slides} />;
 };
 
-export { ProjectsSection };
+export { ToolsSection };

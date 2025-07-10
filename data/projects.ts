@@ -19,6 +19,19 @@ type ProjectItemType = {
   tags?: string[];
 };
 
+const tools: ProjectItemType[] = [
+  {
+    title: "12 Bar Blues",
+    slug: "blues",
+    type: "Music Tool",
+    description:
+      "A custom tool to generate 12-bar blues chord progressions for improvisation and practice.",
+    link: "/tools/blues",
+    image: require("../public/tools/blues-preview.jpeg"),
+    tags: ["React", "TypeScript", "TailwindCSS"],
+  }
+]
+
 const projects: ProjectItemType[] = [
   {
     title: "Jolly Futures",
@@ -121,5 +134,5 @@ const projects: ProjectItemType[] = [
   },
 ];
 
-export { projects };
+export { projects, tools };
 export type { ProjectItemType };
