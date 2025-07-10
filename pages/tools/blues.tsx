@@ -9,32 +9,15 @@ const BluesPage = () => {
     const [selectedKey, setselectedKey] = useState<NoteType>("C");
     const progression = generateProgression(twelveBarBluesProgression, selectedKey)
     const allChordNotes = Array.from(new Set(progression.flat()));
-    const recommendedScales = [ 
-        {
-            name: `${allChordNotes[0]} Blues`,
-            scale:generateScale(allChordNotes[0], bluesScale),
-        },
-        {
-            name: `${allChordNotes[0]} Pentatonic`,
-            scale:generateScale(allChordNotes[0], majorPentatonic),
-        },
-        {
-            name: `${allChordNotes[1]} Blues`,
-            scale:generateScale(allChordNotes[1], bluesScale),
-        },
-        {
-            name: `${allChordNotes[1]} Pentatonic`,
-            scale:generateScale(allChordNotes[1], majorPentatonic),
-        },
-        {
-            name: `${allChordNotes[2]} Blues`,
-            scale:generateScale(allChordNotes[2], bluesScale),
-        },
-        {
-            name: `${allChordNotes[2]} Pentatonic`,
-            scale:generateScale(allChordNotes[2], majorPentatonic),
-        },
-     ]
+    const recommendedScales = allChordNotes.map(note => ([{
+        name: `${note} Blues`,
+        scale: generateScale(note, bluesScale),
+    },
+    {
+        name: `${note} Pentatonic`,
+        scale: generateScale(note, majorPentatonic),
+    }
+    ])).flat();
 
     return (
         <Layout>
