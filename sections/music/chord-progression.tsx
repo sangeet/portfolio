@@ -189,6 +189,10 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[
                             const bar = (lineNum * lines.length) + index + 1;
                             const isCurrentBar = bar === currentBar;
                             return <div
+                                onClick={() => {
+                                    setCurrentBar(bar);
+                                    setCurrentBarBeat(0);
+                                } }
                                 key={`${chord}-${index}`}
                                 className={`w-12 text-2xl pt-1.5  ${isCurrentBar ? "bg-gray-700" : "bg-gray-800"} rounded transition-all duration-100 ease-in`}
                             >

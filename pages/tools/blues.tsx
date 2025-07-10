@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "../../components/layout/layout";
-import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale, twelveBarBluesProgression } from "../../data/blues/chords";
+import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale, twelveBarBluesProgressions } from "../../data/blues/chords";
 import { KeyboardVisual } from "./chords";
 import { PlayIcon } from "../../components/icons/play";
 import { ChordProgressionSection } from "../../sections/music/chord-progression";
 
 const BluesPage = () => {
     const [selectedKey, setselectedKey] = useState<NoteType>("C");
-    const progression = generateProgression(twelveBarBluesProgression, selectedKey)
+    const [selectedProgression, setSelectedProgression] = useState(twelveBarBluesProgressions[0])
+    const progression = generateProgression(selectedProgression.progression, selectedKey)
     const allChordNotes = Array.from(new Set(progression.flat()));
     const recommendedScales = allChordNotes.map(note => ([{
         name: `${note} Blues`,
@@ -21,20 +22,31 @@ const BluesPage = () => {
 
     return (
         <Layout>
-            <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern gap-10">
+            <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern gap-5">
                 <div className="flex gap-4 flex-wrap">
                     <span>Select Key:</span>
                     {allNotes.map((note, index) =>
                         <button
                             key={`${note}-${index}`}
                             onClick={() => setselectedKey(note)}
-                            className="button px-2"
+                            className={`button px-2 ${note === selectedKey ? "border border-gray-500" : ""}`}
                         >{note}</button>
                     )}
                 </div>
+                <div className="flex gap-4 flex-wrap">
 
-                <div className="flex justify-center">
-                    <div className="flex flex-wrap gap-5">
+                    <span>Select Progression Variant:</span>
+                    {twelveBarBluesProgressions.map((prog, index) =>
+                        <button
+                            key={`${prog.name}-${index}`}
+                            onClick={() => setSelectedProgression(prog)}
+                            className={`button px-2 ${prog.name === selectedProgression.name ? "border border-gray-500" : ""}`}
+                        >{prog.name}</button>
+                    )}
+                </div>
+
+                <div className="flex justify-center my-8">
+                    <div className="flex flex-wrap sm:gap-16 w-full justify-center">
                         {allChordNotes.map((n, index) => {
                             const chordNotes = generateChords(n).majorChord;
                             return <div

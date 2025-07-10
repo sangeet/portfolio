@@ -30,6 +30,44 @@ const twelveBarBluesProgression: ChordProgression = [
     [{ number: 5, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
 ];
 
+const twelveBarFiveTurnaround: ChordProgression = [
+    [{ number: 1, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 4, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 5, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 5, type: "Major" }],
+];
+
+const twelveBarQuickChange: ChordProgression = [
+    [{ number: 1, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 4, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 5, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+];
+
+const twelveBarQuickChangeFiveTurnaround: ChordProgression = [
+    [{ number: 1, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 4, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 1, type: "Major" }],
+    [{ number: 5, type: "Major" }, { number: 4, type: "Major" }, { number: 1, type: "Major" }, { number: 5, type: "Major" }],
+];
+
+const twelveBarBluesProgressions: { name: string, progression: ChordProgression }[] = [
+    {
+        name: "Standard",
+        progression: twelveBarBluesProgression,
+    },
+    {
+        name: "Standard V Turnaround",
+        progression: twelveBarFiveTurnaround,
+    },
+    {
+        name: "Quick Change",
+        progression: twelveBarQuickChange,
+    },
+    {
+        name: "Quick Change V Turnaround",
+        progression: twelveBarQuickChangeFiveTurnaround,
+    }
+]
+
+
 function generateProgression(chordProgression: ChordProgression, rootNote: NoteType): Scale[] {
     const scales: Scale[] = [];
     const scale = generateScale(rootNote, majorScaleLogic);
@@ -110,5 +148,5 @@ function generateChords(rootNote: NoteType): {
 }
 
 export { generateScales, generateChords, generateProgression, generateScale };
-export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, twelveBarBluesProgression, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic };
+export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic, twelveBarBluesProgressions };
 export { type ChordProgression, type ChordNumberReference, type Scale, type ChordType, type KeyObject, type Chord, type NoteType };
