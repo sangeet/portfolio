@@ -109,5 +109,6 @@ function generateChords(rootNote: NoteType): {
 
 }
 
-export { allNotes, generateScales, generateChords, type NoteType, generateProgression, generateScale, twelveBarBluesProgression };
-export { bluesScale, minorPentatonic, majorPentatonic, mixolydian };
+export { generateScales, generateChords, generateProgression, generateScale };
+export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, twelveBarBluesProgression, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic };
+export { type ChordProgression, type ChordNumberReference, type Scale, type ChordType, type KeyObject, type Chord, type NoteType };
