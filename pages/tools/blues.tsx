@@ -71,24 +71,48 @@ const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[] }) =>
     const [currentBarBeat, setCurrentBarBeat] = useState(0); //0-3
 
     const [timeInterval, setTimeInterval] = useState<NodeJS.Timer | null>(null);
-    const metronomeRef = useRef<HTMLAudioElement | null>(null);
+    // --- Remove metronomeRef ---
+    // const metronomeRef = useRef<HTMLAudioElement | null>(null);
+    const audioCtxRef = useRef<AudioContext | null>(null); // <-- AudioContext for metronome
     const [bpm, setBpm] = useState(60);
     const timerDurationinMs = 1000 / (bpm / 60);
+
+    // --- Beep type state ---
+    const [beepType, setBeepType] = useState<"square" | "sine" | "triangle">("square");
 
     // --- Count-in state ---
     const [countIn, setCountIn] = useState(false);
     const [countInBeat, setCountInBeat] = useState(0);
     const countInIntervalRef = useRef<NodeJS.Timer | null>(null);
 
-    useEffect(() => {
-        metronomeRef.current = new Audio('/metronome.mp3');
-    }, []);
+    // --- Remove useEffect for Audio preload ---
 
+    // --- Web Audio API Metronome ---
     function playMetronome() {
-        if (metronomeRef.current) {
-            metronomeRef.current.currentTime = 0;
-            metronomeRef.current.play();
+        if (!audioCtxRef.current) {
+            audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
         }
+        const ctx = audioCtxRef.current;
+        if (!ctx) return;
+
+        if (ctx.state === "suspended") {
+            ctx.resume();
+        }
+
+        // Oscillator beep (no click)
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = beepType;
+        osc.frequency.value = beepType === "triangle" ? 800 : 1000;
+        gain.gain.value = 0.18;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.05);
+        osc.onended = () => {
+            osc.disconnect();
+            gain.disconnect();
+        };
     }
 
     // --- Count-in logic ---
@@ -132,11 +156,15 @@ const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[] }) =>
         setCountInBeat(0);
         if (timeInterval !== null) {
             clearInterval(timeInterval);
-            setTimeInterval(null); // <-- Fix: allow restart after stop
+            setTimeInterval(null);
         }
         if (countInIntervalRef.current) {
             clearInterval(countInIntervalRef.current);
             countInIntervalRef.current = null;
+        }
+        // Optionally suspend AudioContext to save battery
+        if (audioCtxRef.current && audioCtxRef.current.state === "running") {
+            audioCtxRef.current.suspend();
         }
     }
 
@@ -183,6 +211,18 @@ const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[] }) =>
                     id="bpm-input" value={bpm}
                     onChange={e => setBpm(parseInt(e.target.value))}
                 />
+                {/* --- Beep type selector --- */}
+                <label htmlFor="beep-type" className="ml-2">Sound:</label>
+                <select
+                    id="beep-type"
+                    className="bg-gray-700 px-2 py-1 rounded"
+                    value={beepType}
+                    onChange={e => setBeepType(e.target.value as any)}
+                >
+                    <option value="square">Square</option>
+                    <option value="sine">Sine</option>
+                    <option value="triangle">Triangle</option>
+                </select>
                 <button onClick={startCountIn} disabled={countIn || timeInterval !== null}>Start</button>
                 <button onClick={resetTimer}>Stop</button>
                 {countIn && <span className="text-yellow-400"> {countInBeat < 4 ? `Count In: ${countInBeat + 1}` : ""} </span> }
