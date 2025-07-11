@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "../../components/layout/layout";
 import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale, twelveBarBluesProgressions } from "../../data/blues/chords";
-import { KeyboardVisual } from "./chords";
-import { PlayIcon } from "../../components/icons/play";
+import { KeyboardVisual } from "../../components/music/keyboard-visual";
 import { ChordProgressionSection } from "../../sections/music/chord-progression";
 
 const BluesPage = () => {
@@ -48,12 +47,12 @@ const BluesPage = () => {
                 <div className="flex justify-center my-8">
                     <div className="flex flex-wrap sm:gap-16 w-full justify-center">
                         {allChordNotes.map((n, index) => {
-                            const chordNotes = generateChords(n).majorChord;
+                            const chord = generateChords(n).major;
                             return <div
                                 key={`${n}-${index}`}
                             >
-                                <KeyboardVisual highlightedNotes={chordNotes} width={150} />
-                                <span>{n} ({chordNotes.join(" ")})</span>
+                                <KeyboardVisual highlightedNotes={chord.notes} width={150} />
+                                <span>{n} ({chord.notes.join(" ")})</span>
                             </div>;
                         }
                         )}
