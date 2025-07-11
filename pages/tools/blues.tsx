@@ -15,15 +15,6 @@ const BluesPage = () => {
         .filter((chord, idx, arr) =>
             arr.findIndex(c => c.root === chord.root && c.type === chord.type) === idx
         );
-    const recommendedScales = allChordsInProgression.map(chord => ([{
-        name: `${chord.root} Blues`,
-        scale: generateScale(chord.root, bluesScale),
-    },
-    {
-        name: `${chord.root} Pentatonic`,
-        scale: generateScale(chord.root, majorPentatonic),
-    }
-    ])).flat();
 
     console.log(allChordsInProgression)
 
@@ -71,18 +62,32 @@ const BluesPage = () => {
                 <div className="flex flex-col justify-center">
                     <h2 className="text-lg mb-2">Recommended Scales:</h2>
                     <div className="flex flex-wrap justify-around gap-5">
-                        {recommendedScales.map((scale, index) => {
-                            return <div className="flex flex-col" key={`${scale.name}-${index}`} >
-                                <KeyboardVisual highlightedNotes={scale.scale} width={100} />
-                                <span>{scale.name}</span>
-                                <span>{scale.scale.join(" ")}</span>
-                            </div>;
+                        {
+                            allChordsInProgression
+                                .map(chord => ([
+                                    selectedProgression.recommendedScales.map(sc => ({
+                                        name: `${chord.root} ${sc.name}`,
+                                        notes: generateScale(chord.root, sc.scale)
+                                    }))
+                                ].flat())).flat()
+                                .map(scaleData => <ScaleRecommendation {...scaleData} />)
                         }
-                        )}
+
                     </div>
                 </div>
             </div>
         </Layout>
+    )
+}
+
+const ScaleRecommendation = ({ name, notes }: { name: string, notes: NoteType[] }) => {
+    return (
+
+        <div className="flex flex-col">
+            <KeyboardVisual highlightedNotes={notes} width={100} />
+            <span>{name}</span>
+            <span>{notes.join(" ")}</span>
+        </div>
     )
 }
 

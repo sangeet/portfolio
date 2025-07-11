@@ -36,17 +36,21 @@ const allNotes: NoteType[] = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "
 
 const majorScaleLogic = [2, 2, 1, 2, 2, 2, 1];
 const minorScaleLogic = [2, 1, 2, 2, 1, 2, 2];
-const bluesScale = [2, 1, 1, 3, 2];
+const majorBluesScale = [2, 1, 1, 3, 2];
+const minorBluesScale = [3, 2, 1, 1, 3 ];
 const majorPentatonic = [2, 2, 3, 2, 3];
 const minorPentatonic = [3, 2, 2, 3];
 const mixolydian = [2, 2, 1, 2, 2, 1, 2];
 const locrian = [1, 2, 2, 1, 2, 2, 2];
 const wholeToneScale = [2, 2, 2, 2, 2, 2];
 
-const allScales = {
+type ScaleType = "major" | "minor" | "majorBluesScale" | "minorBluesScale" | "majorPentatonic" | "minorPentatonic" | "mixolydian" | "locrian" | "wholeTone";
+
+const allScales: Record<ScaleType, ScaleLogic> = {
     major: majorScaleLogic,
     minor: minorScaleLogic,
-    blues: bluesScale,
+    majorBluesScale: majorBluesScale,
+    minorBluesScale: minorBluesScale,
     majorPentatonic: majorPentatonic,
     minorPentatonic: minorPentatonic,
     mixolydian: mixolydian,
@@ -88,10 +92,9 @@ function generateScale(rootNote: NoteType, scaleLogic: ScaleLogic): NoteType[] {
         scale.push(allNotes[currentIndex]);
     }
 
-    // Remove the last note (octave) so scale has only unique notes
-    scale.pop();
+    const uniqueScale = Array.from(new Set(scale));
 
-    return scale;
+    return uniqueScale;
 }
 
 function generateScales(rootNote: NoteType): {
@@ -150,5 +153,5 @@ function generateChords(rootNote: NoteType): Record<ChordType, Chord> {
 }
 
 export { generateScales, generateChords, generateProgression, generateScale };
-export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic };
+export { allScales, allNotes, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic, type ScaleLogic };
 export { type ChordProgreessionReference, type ChordNumberReference, type Scale, type ChordType, type Chord, type NoteType, type ChordProgression };
