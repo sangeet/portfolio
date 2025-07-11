@@ -20,7 +20,7 @@ const BluesPage = () => {
 
     return (
         <Layout>
-            <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern gap-5">
+            <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 bg-gray-800 border border-gray-700 rounded-lg shadow-lg gap-5">
                 <div className="flex gap-4 flex-wrap">
                     <span>Select Key:</span>
                     {allNotes.map((note, index) =>

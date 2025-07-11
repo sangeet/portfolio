@@ -6,11 +6,11 @@ import { testimonials } from "../../data/testimonials";
 const TestimonialsSection: FunctionComponent = () => {
   const slides = testimonials.map((testimonial, index) => (
     <div key={index} className="w-full my-5 flex-shrink-0 px-3 snap-start">
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full nm-flat-slate-800-lg bg-pattern rounded-xl testimonial-card relative">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 md:px-12 py-5 lg:py-12 flex flex-col items-center justify-center h-full bg-gray-800 border border-gray-700 rounded-xl testimonial-card relative">
         <p className="text-center text-sm sm:text-base md:text-lg">
           {testimonial.text}
         </p>
-        <a href={testimonial.profile.link} target="_blank" className="flex flex-col sm:flex-row items-center mt-10 p-6 sm:py-4 sm:nm-inset-slate-800 rounded-xl sm:rounded-full">
+        <a href={testimonial.profile.link} target="_blank" className="flex flex-col sm:flex-row items-center mt-10 p-6 sm:py-4 sm:border border-gray-700 rounded-xl sm:rounded-full">
           <div className="rounded-full shadow overflow-hidden w-20 h-20 sm:h-24 sm:w-24 flex-shrink-0">
             <Image
               src={testimonial.profile.image}

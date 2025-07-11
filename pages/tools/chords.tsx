@@ -9,14 +9,14 @@ const ChordsPage = () => {
   const selectedKey = allChords.find(note => note.noteName === selectedNote);
   return (
     <Layout>
-      <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 nm-flat-slate-800-lg rounded-lg shadow-lg bg-pattern">
+      <div className="max-w-6xl px-5 py-10 lg:px-10 mx-auto lg:my-12 flex flex-col text-slate-300 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
 
         <div className="flex flex-wrap gap-4 mb-10">
           {allNotes.map((note, index) => (
             <button
               key={`${note}-${index}`}
               onClick={() => setSelectedNote(note)}
-              className={`flex flex-col gap-2 items-center p-3 bg-slate-800 nm-interactive ${(selectedNote === note ? "nm-flat-slate-800-lg" : "bg-slate-800")}`}
+              className={`flex flex-col gap-2 items-center p-3 bg-slate-800 border border-gray-700 ${(selectedNote === note ? "bg-gray-800 border border-gray-700" : "bg-slate-800 border border-gray-700")}`}
             >
               <strong className="text-xl">{note}</strong>
             </button>
