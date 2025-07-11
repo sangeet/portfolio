@@ -1,5 +1,3 @@
-import { all } from "axios";
-
 type NoteType = "C" | "Db" | "D" | "Eb" | "E" | "F" | "Gb" | "G" | "Ab" | "A" | "Bb" | "B";
 type ChordType = "major" | "minor" | "dominant" | "diminished" | "augmented" | "sus4" | "sus2" | "sixth" | "maj7" | "ninth" | "eleventh" | "thirteenth" | "add9" | "add11" | "add13";
 type Scale = NoteType[];
