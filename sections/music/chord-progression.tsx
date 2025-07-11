@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { PlayIcon } from "../../components/icons/play";
-import { Scale } from "../../data/blues/chords";
+import { ChordProgression, Scale } from "../../data/blues/chords";
 import { StopIcon } from "../../components/icons/stop";
 
-export const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[] }) => {
+export const ChordProgressionSection = ({ progresssion }: { progresssion: ChordProgression}) => {
     const numBars = progresssion.flat().length
     const beatsPerBar = 4;
     const [currentBar, setCurrentBar] = useState(1); //1-(numBars)
@@ -132,7 +132,7 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[
         });
     }
 
-    console.log({ numBars, currentBar, currentBarBeat });
+    console.log({ progresssion });
     return (
         <div className="flex flex-wrap items-center justify-center gap-10">
             <div className="flex sm:flex-col gap-5 items-center border p-3 sm:p-8 rounded border-gray-700">
@@ -193,10 +193,10 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: Scale[
                                     setCurrentBar(bar);
                                     setCurrentBarBeat(0);
                                 } }
-                                key={`${chord}-${index}`}
+                                key={index}
                                 className={`w-12 text-2xl pt-1.5  ${isCurrentBar ? "bg-gray-700" : "bg-gray-800"} rounded transition-all duration-100 ease-in`}
                             >
-                                <span>{chord}</span>
+                                <span>{chord.symbol}</span>
                                 {/* <span>{bar}</span> */}
                                 <div className="flex gap-1 justify-between mt-1">
                                     {[0, 1, 2, 3].map(beat =>

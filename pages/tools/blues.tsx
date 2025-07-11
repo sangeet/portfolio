@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "../../components/layout/layout";
-import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale, twelveBarBluesProgressions } from "../../data/blues/chords";
+import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale } from "../../data/blues/chords";
+import { twelveBarBluesProgressions } from "../../data/blues/progressions";
 import { KeyboardVisual } from "../../components/music/keyboard-visual";
 import { ChordProgressionSection } from "../../sections/music/chord-progression";
 
@@ -8,16 +9,23 @@ const BluesPage = () => {
     const [selectedKey, setselectedKey] = useState<NoteType>("C");
     const [selectedProgression, setSelectedProgression] = useState(twelveBarBluesProgressions[0])
     const progression = generateProgression(selectedProgression.progression, selectedKey)
-    const allChordNotes = Array.from(new Set(progression.flat()));
-    const recommendedScales = allChordNotes.map(note => ([{
-        name: `${note} Blues`,
-        scale: generateScale(note, bluesScale),
+    // Get unique chords by root and type
+    const allChordsInProgression = progression
+        .flat()
+        .filter((chord, idx, arr) =>
+            arr.findIndex(c => c.root === chord.root && c.type === chord.type) === idx
+        );
+    const recommendedScales = allChordsInProgression.map(chord => ([{
+        name: `${chord.root} Blues`,
+        scale: generateScale(chord.root, bluesScale),
     },
     {
-        name: `${note} Pentatonic`,
-        scale: generateScale(note, majorPentatonic),
+        name: `${chord.root} Pentatonic`,
+        scale: generateScale(chord.root, majorPentatonic),
     }
     ])).flat();
+
+    console.log(allChordsInProgression)
 
     return (
         <Layout>
@@ -46,13 +54,12 @@ const BluesPage = () => {
 
                 <div className="flex justify-center my-8">
                     <div className="flex flex-wrap sm:gap-16 w-full justify-center">
-                        {allChordNotes.map((n, index) => {
-                            const chord = generateChords(n).major;
+                        {allChordsInProgression.map((chord, index) => {
                             return <div
-                                key={`${n}-${index}`}
+                                key={`${chord.root}-${index}`}
                             >
                                 <KeyboardVisual highlightedNotes={chord.notes} width={150} />
-                                <span>{n} ({chord.notes.join(" ")})</span>
+                                <span>{chord.symbol} ({chord.notes.join(" ")})</span>
                             </div>;
                         }
                         )}

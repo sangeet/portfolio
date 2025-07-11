@@ -2,71 +2,34 @@ type NoteType = "C" | "Db" | "D" | "Eb" | "E" | "F" | "Gb" | "G" | "Ab" | "A" | 
 type ChordType = "major" | "minor" | "dominant" | "diminished" | "augmented" | "sus4" | "sus2" | "sixth" | "maj7" | "ninth" | "eleventh" | "thirteenth" | "add9" | "add11" | "add13";
 type Scale = NoteType[];
 
-type ChordProgression = ChordNumberReference[][];
+type ChordProgreessionReference = ChordNumberReference[][];
 
 type ChordNumberReference = {
     number: number;
     type: ChordType;
 }
 
-const twelveBarBluesProgression: ChordProgression = [
-    [{ number: 1, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 4, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 5, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-];
+type ScaleLogic = number[]
 
-const twelveBarFiveTurnaround: ChordProgression = [
-    [{ number: 1, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 4, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 5, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 5, type: "major" }],
-];
+type ChordLogic = {
+    logic: number[];
+    scaleLogic: ScaleLogic;
+    suffix: string;
+}
 
-const twelveBarQuickChange: ChordProgression = [
-    [{ number: 1, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 4, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 5, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-];
+type Chord = {
+    root: NoteType;
+    type: ChordType;
+    notes: NoteType[];
+    symbol: string;
+}
 
-const twelveBarQuickChangeFiveTurnaround: ChordProgression = [
-    [{ number: 1, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 4, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 1, type: "major" }],
-    [{ number: 5, type: "major" }, { number: 4, type: "major" }, { number: 1, type: "major" }, { number: 5, type: "major" }],
-];
+type ChordProgression = Chord[][];
 
-const twelveBarBluesProgressions: { name: string, progression: ChordProgression }[] = [
-    {
-        name: "Standard",
-        progression: twelveBarBluesProgression,
-    },
-    {
-        name: "Standard V Turnaround",
-        progression: twelveBarFiveTurnaround,
-    },
-    {
-        name: "Quick Change",
-        progression: twelveBarQuickChange,
-    },
-    {
-        name: "Quick Change V Turnaround",
-        progression: twelveBarQuickChangeFiveTurnaround,
-    }
-]
-
-
-function generateProgression(chordProgression: ChordProgression, rootNote: NoteType): Scale[] {
-    const scales: Scale[] = [];
-    const scale = generateScale(rootNote, majorScaleLogic);
-
-    for (const progression of chordProgression) {
-        const progressionScale: Scale = [];
-        for (const chord of progression) {
-            const chordIndex = (chord.number - 1) % scale.length;
-            progressionScale.push(scale[chordIndex]);
-        }
-        scales.push(progressionScale);
-    }
-
-    return scales;
+function generateProgression(chordProgression: ChordProgreessionReference, rootNote: NoteType): ChordProgression {
+    const progression = chordProgression.map(line => line.map(chord => generateChordFromReference(rootNote, chord)));
+    console.log({ chordProgression, progression })
+    return progression
 }
 
 const allNotes: NoteType[] = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
@@ -94,35 +57,22 @@ const allScales = {
 const majorChordLogic = [1, 3, 5];
 const minorChordLogic = [1, 3, 5];
 
-type ScaleLogic = number[]
-
-type ChordLogic = {
-    logic: number[];
-    scaleLogic: ScaleLogic;
-}
-
-type Chord = {
-    root: NoteType;
-    type: ChordType;
-    notes: NoteType[];
-}
-
 const allChordLogic: Record<ChordType, ChordLogic> = {
-    major: { logic: [1, 3, 5], scaleLogic: allScales.major },
-    minor: { logic: [1, 3, 5], scaleLogic: allScales.minor },
-    dominant: { logic: [1, 3, 5, 7], scaleLogic: allScales.mixolydian },
-    diminished: { logic: [1, 3, 5], scaleLogic: allScales.locrian },
-    augmented: { logic: [1, 3, 5], scaleLogic: allScales.wholeTone },
-    sus4: { logic: [1, 4, 5], scaleLogic: allScales.major },
-    sus2: { logic: [1, 2, 5], scaleLogic: allScales.major },
-    sixth: { logic: [1, 3, 5, 6], scaleLogic: allScales.major },
-    maj7: { logic: [1, 3, 5, 7], scaleLogic: allScales.major },
-    ninth: { logic: [1, 3, 5, 7, 9], scaleLogic: allScales.major },
-    eleventh: { logic: [1, 3, 5, 7, 9, 11], scaleLogic: allScales.major },
-    thirteenth: { logic: [1, 3, 5, 7, 9, 11, 13], scaleLogic: allScales.major },
-    add9: { logic: [1, 3, 5, 9], scaleLogic: allScales.major },
-    add11: { logic: [1, 3, 5, 11], scaleLogic: allScales.major },
-    add13: { logic: [1, 3, 5, 13], scaleLogic: allScales.major },
+    major: { logic: [1, 3, 5], scaleLogic: allScales.major, suffix: "" },
+    minor: { logic: [1, 3, 5], scaleLogic: allScales.minor, suffix: "m" },
+    dominant: { logic: [1, 3, 5, 7], scaleLogic: allScales.mixolydian, suffix: "7" },
+    diminished: { logic: [1, 3, 5], scaleLogic: allScales.locrian, suffix: "dim" },
+    augmented: { logic: [1, 3, 5], scaleLogic: allScales.wholeTone, suffix: "aug" },
+    sus4: { logic: [1, 4, 5], scaleLogic: allScales.major, suffix: "sus4" },
+    sus2: { logic: [1, 2, 5], scaleLogic: allScales.major, suffix: "sus2" },
+    sixth: { logic: [1, 3, 5, 6], scaleLogic: allScales.major, suffix: "6" },
+    maj7: { logic: [1, 3, 5, 7], scaleLogic: allScales.major, suffix: "maj7" },
+    ninth: { logic: [1, 3, 5, 7, 9], scaleLogic: allScales.major, suffix: "9" },
+    eleventh: { logic: [1, 3, 5, 7, 9, 11], scaleLogic: allScales.major, suffix: "11" },
+    thirteenth: { logic: [1, 3, 5, 7, 9, 11, 13], scaleLogic: allScales.major, suffix: "13" },
+    add9: { logic: [1, 3, 5, 9], scaleLogic: allScales.major, suffix: "add9" },
+    add11: { logic: [1, 3, 5, 11], scaleLogic: allScales.major, suffix: "add11" },
+    add13: { logic: [1, 3, 5, 13], scaleLogic: allScales.major, suffix: "add13" },
 }
 
 function generateScale(rootNote: NoteType, scaleLogic: ScaleLogic): NoteType[] {
@@ -156,26 +106,43 @@ function generateScales(rootNote: NoteType): {
     };
 }
 
-function generateChord(rootNote: NoteType, chordLogic: ChordLogic): NoteType[] {
-    const chord: NoteType[] = [];
-
+function generateChord(rootNote: NoteType, chordLogic: ChordLogic): Chord {
+    const notes: NoteType[] = [];
     const scale = generateScale(rootNote, chordLogic.scaleLogic);
     for (const step of chordLogic.logic) {
-        chord.push(scale[(step - 1) % scale.length]);
+        notes.push(scale[(step - 1) % scale.length]);
     }
+    return {
+        root: rootNote,
+        type: Object.keys(allChordLogic).find(key => allChordLogic[key as ChordType] === chordLogic) as ChordType ?? "major",
+        notes,
+        symbol: `${rootNote}${chordLogic.suffix}`
+    };
+}
 
-    return chord;
+function generateChordFromReference(
+    rootNote: NoteType,
+    chordReference: ChordNumberReference
+): Chord {
+    const chordLogic = allChordLogic[chordReference.type];
+    const majorScale = generateScale(rootNote, allScales.major);
+    const chordNote = majorScale[(chordReference.number - 1) % majorScale.length];
+    if (!chordLogic) {
+        throw new Error(`Chord type ${chordReference.type} not found`);
+    }
+    return generateChord(chordNote, chordLogic);
 }
 
 function generateChords(rootNote: NoteType): Record<ChordType, Chord> {
     const chords: Record<ChordType, Chord> = {} as Record<ChordType, Chord>;
 
     for (const [type, logic] of Object.entries(allChordLogic)) {
-        const chordNotes = generateChord(rootNote, logic);
+        const chord = generateChord(rootNote, logic);
         chords[type as ChordType] = {
             root: rootNote,
             type: type as ChordType,
-            notes: chordNotes
+            notes: chord.notes,
+            symbol: `${rootNote}${logic.suffix}`
         };
     }
 
@@ -183,5 +150,5 @@ function generateChords(rootNote: NoteType): Record<ChordType, Chord> {
 }
 
 export { generateScales, generateChords, generateProgression, generateScale };
-export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic, twelveBarBluesProgressions };
-export { type ChordProgression, type ChordNumberReference, type Scale, type ChordType, type Chord, type NoteType };
+export { bluesScale, minorPentatonic, majorPentatonic, mixolydian, allNotes, majorScaleLogic, minorScaleLogic, majorChordLogic, minorChordLogic };
+export { type ChordProgreessionReference, type ChordNumberReference, type Scale, type ChordType, type Chord, type NoteType, type ChordProgression };

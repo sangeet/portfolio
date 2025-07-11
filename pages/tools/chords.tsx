@@ -28,7 +28,7 @@ const ChordsPage = () => {
             <div className="flex flex-wrap gap-5">
               {Object.entries(selectedKey.chords).map(([chordType, chord]) => (
                 <div className="flex flex-col" key={chordType}>
-                  <span className="capitalize">{chordType}:</span>
+                  <span className="capitalize">{chordType} - {chord.symbol}</span>
                   <KeyboardVisual highlightedNotes={chord.notes} width={140} />
                 </div>
               ))}
