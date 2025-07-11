@@ -1,6 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container {
+  @apply mx-auto;
+}
 
 html {
   @apply bg-gray-800;
@@ -26,7 +46,7 @@ footer {
   @apply font-medium text-4xl text-gray-300;
 }
 
-.interactive {
+/* .interactive {
   @apply transition-all duration-100 ease-linear;
 }
 
@@ -36,19 +56,19 @@ footer {
 
 .interactive:active {
   @apply brightness-75;
-}
+} */
 
-a,
+/* a,
 button {
   @apply interactive;
-}
+} */
 
 .card {
-  @apply bg-gray-800 border border-gray-700 flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow;
+  @apply bg-gray-800 border border-gray-700 flex flex-col flex-shrink-0 rounded-lg overflow-hidden shadow-sm;
 }
 
 .tag {
-  @apply bg-gray-800 border border-gray-700 px-2 py-1 rounded flex-shrink-0 my-1;
+  @apply bg-gray-800 border border-gray-700 px-2 py-1 rounded-sm flex-shrink-0 my-1;
 }
 
 .white-strong strong {
@@ -67,13 +87,13 @@ button {
 }
 
 .dot {
-  @apply h-5 w-5 rounded-full bg-gray-800 border border-gray-700 mx-2 interactive cursor-pointer;
+  @apply h-5 w-5 rounded-full bg-gray-800 border border-gray-700 mx-2 cursor-pointer;
 }
 
 .carousel-button {
-  @apply bg-gray-800 border border-gray-700 px-2 mx-2 outline-none interactive;
+  @apply bg-gray-800 border border-gray-700 px-2 mx-2 outline-hidden;
 }
 
 .button {
-  @apply bg-gray-800 border border-gray-700 px-2 mx-2 outline-none interactive;
+  @apply bg-gray-800 border border-gray-700 px-2 mx-2 outline-hidden;
 }

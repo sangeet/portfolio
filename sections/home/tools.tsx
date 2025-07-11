@@ -22,7 +22,7 @@ const ToolsSection: FunctionComponent = () => {
             />
           </div>
 
-          <div className="flex flex-col p-5 flex-grow">
+          <div className="flex flex-col p-5 grow">
             <h3 className="text-2xl font-medium">{item.title}</h3>
             <p className="my-5">{item.description}</p>
             {item.tags && (
