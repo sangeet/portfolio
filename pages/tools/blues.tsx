@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Layout } from "../../components/layout/layout";
-import { allNotes, bluesScale, generateChords, generateProgression, generateScale, generateScales, majorPentatonic, minorPentatonic, mixolydian, NoteType, Scale } from "../../data/blues/chords";
+import { allNotes, generateProgression, generateScale, NoteType } from "../../data/blues/chords";
 import { twelveBarBluesProgressions } from "../../data/blues/progressions";
 import { KeyboardVisual } from "../../components/music/keyboard-visual";
 import { ChordProgressionSection } from "../../sections/music/chord-progression";
@@ -70,7 +70,7 @@ const BluesPage = () => {
                                         notes: generateScale(chord.root, sc.scale)
                                     }))
                                 ].flat())).flat()
-                                .map(scaleData => <ScaleRecommendation {...scaleData} />)
+                                .map(scaleData => <ScaleRecommendation key={scaleData.name} {...scaleData} />)
                         }
 
                     </div>
