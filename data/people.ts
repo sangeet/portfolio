@@ -2,6 +2,7 @@ import matthewImage from "../public/people/matthew.jpg";
 import sebastienImage from "../public/people/sebastien.jpg";
 import gilbertImage from "../public/people/gilbert.webp";
 import stefanImage from "../public/people/stefan.jpg";
+import { StaticImageData } from "next/image";
 
 type Person = {
     name: string;

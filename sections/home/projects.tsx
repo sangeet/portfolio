@@ -10,8 +10,7 @@ const ProjectsSection: FunctionComponent = () => {
       key={index}
       className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 my-5 flex-shrink-0 px-3 snap-start"
     >
-      <Link href={`/project/${item.slug}`}>
-        <a className="card h-full">
+      <Link href={`/project/${item.slug}`} className="card h-full">
           <div className="block w-full">
             <Image
               src={item.image}
@@ -34,7 +33,6 @@ const ProjectsSection: FunctionComponent = () => {
               </div>
             )}
           </div>
-        </a>
       </Link>
     </div>
   ));

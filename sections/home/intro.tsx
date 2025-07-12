@@ -43,10 +43,8 @@ const IntroTextSection = () => {
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center mt-8 gap-3">{<SocialIcons />}</div>
-          <Link href="/profile">
-            <a className="mt-8 px-7 py-5 bg-gray-800 border border-gray-700 font-bold rounded">
+          <Link href="/profile" className="mt-8 px-7 py-5 bg-gray-800 border border-gray-700 font-bold rounded">
               View Full Profile
-            </a>
           </Link>
           <a
             target="_blank"
@@ -60,7 +58,7 @@ const IntroTextSection = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-3 w-3 opacity-75"
             >
@@ -84,7 +82,7 @@ const DownloadIcon = (props: React.SVGProps<SVGSVGElement>) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       stroke="currentColor"
     >
       <path

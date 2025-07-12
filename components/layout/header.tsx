@@ -5,9 +5,7 @@ const Header = () => {
     <header id="header" className="py-5 text-slate-100 z-20">
       <div className="container flex justify-between items-center">
         <Link href="/">
-          <a>
-            <Logo />
-          </a>
+          <Logo />
         </Link>
         <Nav />
       </div>
@@ -27,7 +25,7 @@ const Nav = () => {
         {links.map((link, index) => (
           <li key={index} className="ml-5 font-medium">
             <Link href={link.href}>
-              <a>{link.title}</a>
+              {link.title}
             </Link>
           </li>
         ))}
