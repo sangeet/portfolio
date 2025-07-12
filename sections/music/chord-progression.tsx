@@ -58,7 +58,7 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: ChordP
     function startCountIn() {
         setCountIn(true);
         setCountInBeat(0);
-        if (countInIntervalRef.current) clearInterval(countInIntervalRef.current);
+        if (countInIntervalRef.current) clearInterval(countInIntervalRef.current as any);
 
         let localCount = 0;
         playMetronome();
@@ -69,7 +69,7 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: ChordP
             if (localCount >= 4) {
                 // Clear count-in timer BEFORE starting main timer
                 if (countInIntervalRef.current) {
-                    clearInterval(countInIntervalRef.current);
+                    globalThis.clearInterval(countInIntervalRef.current as any);
                     countInIntervalRef.current = null;
                 }
                 setCountIn(false);
@@ -94,11 +94,11 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: ChordP
         setCountIn(false);
         setCountInBeat(0);
         if (timeInterval !== null) {
-            clearInterval(timeInterval);
+            globalThis.clearInterval(timeInterval as any);
             setTimeInterval(null);
         }
         if (countInIntervalRef.current) {
-            clearInterval(countInIntervalRef.current);
+            globalThis.clearInterval(countInIntervalRef.current as any);
             countInIntervalRef.current = null;
         }
         // Optionally suspend AudioContext to save battery
@@ -132,7 +132,6 @@ export const ChordProgressionSection = ({ progresssion }: { progresssion: ChordP
         });
     }
 
-    console.log({ progresssion });
     return (
         <div className="flex flex-wrap items-center justify-center gap-10">
             <div className="flex sm:flex-col gap-5 items-center border p-3 sm:p-8 rounded border-gray-700">

@@ -37,8 +37,8 @@ const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
   return (
     <Layout>
       <section className="container py-12 lg:py-24 grid grid-cols-4 xl:grid-cols-12 gap-12 rounded-lg">
-        <div className="col-span-4 xl:col-span-8 nm-flat-slate-800-lg p-5">
-          <div className="p-2 nm-inset-slate-800 rounded-lg">
+        <div className="col-span-4 xl:col-span-8 bg-gray-800 border border-gray-700 p-5">
+          <div className="p-2 border border-gray-700 rounded-lg">
             <Image
               src={data.image}
               alt={data.title}
@@ -48,8 +48,8 @@ const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
             />
           </div>
         </div>
-        <div className="col-span-4 xl:col-span-4 p-5 nm-flat-slate-800-lg rounded-lg">
-          <div className="flex flex-col p-8 nm-inset-slate-800 rounded-lg h-full bg-pattern">
+        <div className="col-span-4 xl:col-span-4 p-5 bg-gray-800 border border-gray-700 rounded-lg">
+          <div className="flex flex-col p-8 border border-gray-700 rounded-lg h-full">
             <span className="mb-5 text-orange-400">{data.type}</span>
             <h1 className="text-4xl font-bold">{data.title}</h1>
             <p className="my-5">{data.description}</p>
@@ -65,7 +65,7 @@ const Project: FunctionComponent<ProjectPropsType> = ({ data }) => {
               href={data.link}
               target="_blank"
               rel="noreferrer"
-              className="self-start nm-flat-slate-800-lg px-5 py-3 rounded mt-10 text-white flex"
+              className="self-start bg-gray-800 border border-gray-700 px-5 py-3 rounded mt-10 text-white flex"
             >
               <div className="border-r pr-2 mr-2">
                 <ExternalLinkIcon className="h-6 w-6" />

@@ -8,6 +8,7 @@ import gigarBox from "../public/projects/gigarbox.png";
 import stateOfMatter from "../public/projects/state-of-matter.png";
 import metAvtar from "../public/projects/metavtar.png";
 import growcraft from "../public/projects/growcraft.png";
+import { StaticImageData } from "next/image";
 
 type ProjectItemType = {
   title: string;

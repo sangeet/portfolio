@@ -28,7 +28,6 @@ type ChordProgression = Chord[][];
 
 function generateProgression(chordProgression: ChordProgreessionReference, rootNote: NoteType): ChordProgression {
     const progression = chordProgression.map(line => line.map(chord => generateChordFromReference(rootNote, chord)));
-    console.log({ chordProgression, progression })
     return progression
 }
 
