@@ -18,18 +18,20 @@ type ProjectItemType = {
   link: string;
   image: StaticImageData;
   tags?: string[];
+  github?: string;
 };
 
 const tools: ProjectItemType[] = [
   {
-    title: "12 Bar Blues",
-    slug: "blues",
-    type: "Music Tool",
+    title: "Music Tools",
+    slug: "music-tools",
+    type: "Hobby Project",
     description:
-      "A custom tool to generate 12-bar blues chord progressions for improvisation and practice.",
-    link: "/tools/blues",
-    image: require("../public/tools/blues-preview.jpeg"),
-    tags: ["React", "TypeScript", "TailwindCSS"],
+      "A website for custom mini tools for aiding my Piano learning journey.",
+    link: "https://www.musictools.dev/tools/progressions",
+    github: "https://github.com/sangeet/musictools",
+    image: require("../public/tools/music-tools.jpeg"),
+    tags: ["Next.js", "Supabase", "Gemini AI Model"],
   }
 ]
 
